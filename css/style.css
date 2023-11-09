@@ -73,6 +73,7 @@ p:not(.P1) {
     font-size: 1.5em;
 }
 .main-page-header {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
