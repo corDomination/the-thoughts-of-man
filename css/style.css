@@ -55,7 +55,8 @@ p:not(.P1) {
     position: relative;
 }
 .logo-image {
-    height: 10em;
+    max-width: 18em;
+    width: 100%;
 }
 .logo-title-container {
     width: 100%;
@@ -135,7 +136,7 @@ p:not(.P1) {
 
 .main-page-quote-container {
     font-family: serif;
-    width: 23em;
+    width: 18em;
 }
 .main-page-quote {
     font-size: 1.5em;
