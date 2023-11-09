@@ -2,7 +2,9 @@ body {
     font-size: 16px;
     font-family: monospace;
     background: #000;
-    background-image: linear-gradient(180deg, #c6d4d3, #9cb8b5);
+    background-color: #c6d4d3;
+    width: 100%;
+    margin: 0;
 }
 /* Cordonnier */
 .P1 {
@@ -27,20 +29,19 @@ body {
     margin: 1em 5%;
     padding: 1em 5%;
     box-shadow: 2px 2px #000;
-    width: 80%;
+    width: 60%;
+    overflow: hidden;
+}
+p.P1 {
+    margin-right: 20%;
 }
 p:not(.P1) {
-    margin-left: 10%;
+    margin-left: 20%;
 }
 .conversation {
     display: flex;
     flex-direction: column;
-}
-@media (max-width:960px) {
-    p {
-        width: 80%;
-        margin-left: 0;
-    }
+    align-items: center;
 }
 
 /* Header Image */
@@ -48,6 +49,7 @@ p:not(.P1) {
     font-size: 2em;
     text-align: center;
     width: 100%;
+    margin-top: 0.5em;
 }
 .logo-container {
     position: relative;
@@ -78,15 +80,26 @@ p:not(.P1) {
     flex-direction: column;
 }
 .header-link {
-    padding: 0.25em;
-    background-color: #eee;
+    height: 100%;
+    padding: 0.25em 1em 0.25em 0.5em;
+    background-color: #112;
     margin-bottom: 0.25em;
-    border-radius: 0.125em;
+    border-radius: 0 5em 5em 0;
     text-decoration: none;
     font-size: 1.25em;
     font-weight: bold;
-    color: rgb(0, 55, 175);
+    color: #fff;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+.header-link:hover {
+    background-color: #007;
+}
+.header-link-last {
+    margin-bottom: 0;
 }
 
 /* Section */
@@ -96,6 +109,8 @@ p:not(.P1) {
     margin-top: 1em;
     background-color: #ddd;
     border-radius: 0.25em;
+    margin: 1em;
+    width: auto;
 }
 .page-section-title {
     font-weight: bold;
@@ -116,4 +131,19 @@ p:not(.P1) {
     flex-direction: column;
     width: auto;
     padding: 2em;
+}
+
+.main-page-quote-container {
+    font-family: serif;
+    width: 23em;
+}
+.main-page-quote {
+    font-size: 1.5em;
+}
+.main-page-quote-speaker {
+    width: 100%;
+    margin-top: 1em;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.25em;
 }
