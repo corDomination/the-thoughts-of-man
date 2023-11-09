@@ -4,7 +4,7 @@ class BstudController {
     }
 
     async prepare() {
-        const response = await fetch('/data/studies.json');
+        const response = await fetch('./data/studies.json');
         const json = await response.json();
         this._data = json.entries[0];
         const title = document.querySelector('.page-section-title');
