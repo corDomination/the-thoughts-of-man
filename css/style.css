@@ -1,0 +1,94 @@
+body {
+    font-size: 16px;
+    font-family: monospace;
+    background-image: linear-gradient(180deg, #DECBA4, rgb(135, 148, 133));
+}
+/* Cordonnier */
+.P1 {
+    background-color: rgb(234, 250, 198);
+}
+/* Aidan */
+.P2 {
+    background-color: rgb(180, 195, 201);
+}
+/* Anderson */
+.P3 {
+    background-color: rgb(197, 180, 175);
+}
+.P4 {
+    background-color: rgb(194, 161, 196);
+}
+.P5 {
+    background-color: rgb(193, 217, 248);
+}
+.conversation>p {
+    border-radius: 0.5em;
+    margin: 1em 5%;
+    padding: 1em 5%;
+    box-shadow: 2px 2px #000;
+    width: 80%;
+}
+p:not(.P1) {
+    margin-left: 10%;
+}
+.conversation {
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width:960px) {
+    p {
+        width: 80%;
+        margin-left: 0;
+    }
+}
+
+/* Header Image */
+.page-title {
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+}
+.logo-container {
+    position: relative;
+}
+.logo-image {
+    height: 10em;
+}
+.logo-title-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+.logo-title {
+    position: absolute;
+    bottom: 0.25em;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    font-size: 1.5em;
+}
+.main-page-header {
+    display: flex;
+    flex-direction: row;
+}
+.header-links {
+    display: flex;
+    flex-direction: column;
+}
+.header-link {
+    padding: 0.25em;
+    background-color: #eee;
+    margin-bottom: 0.25em;
+    border-radius: 0.125em;
+    text-decoration: none;
+    font-size: 1.25em;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+}
+
+/* Section */
+.page-section {
+    padding: 2em;
+}
