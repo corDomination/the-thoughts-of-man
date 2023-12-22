@@ -149,3 +149,11 @@ p:not(.P1) {
     font-weight: bold;
     font-size: 1.25em;
 }
+.interesting-links {
+    display: flex;
+    flex-direction: column;
+}
+.quotes {
+    display: flex;
+    flex-direction: row;
+}
