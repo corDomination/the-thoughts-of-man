@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "title": "Relationships",
+            "icon": "",
+            "url": "relationships.md"
+        },
+        {
+            "title": "Diet",
+            "icon": "",
+            "url": "diet.md"
+        },
+        {
+            "title": "Family",
+            "icon": "",
+            "url": "family.md"
+        },
+        {
+            "title": "Friendship",
+            "icon": "",
+            "url": "friendship.md"
+        }
+    ]
+}

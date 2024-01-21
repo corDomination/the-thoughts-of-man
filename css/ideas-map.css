@@ -1,0 +1,50 @@
+.logo-image-bg {
+    width: 100%;
+    opacity: 0.2;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    z-index: -1;
+}
+.idea-map-section-button {
+    display: block;
+    width: 14em;
+    background-color: #ccc;
+    height: 4em;
+    color: #000;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 0 2em 2em 0;
+    border-color: #fa0;
+    border-width: 0.25em;
+}
+.card-container {
+    display: flex;
+
+}
+.card {
+    width: 25vmin;
+    height: 25vmin;
+    box-shadow: #000 2px 2px;
+    background-color: #cc27;
+    padding: 1em;
+    margin: 1em;
+    overflow: hidden;
+    display: flex;
+}
+.card-icon {
+    height: 2em;
+    width: 2em;
+}
+.card-icon[data-icon='diet'] {
+    background-image: url('../svg/health.svg')
+}
+.card-icon[data-icon='family'] {
+    background-image: url('../svg/health.svg')
+}
+.card-icon[data-icon='friends'] {
+    background-image: url('../svg/health.svg')
+}
+.card-icon[data-icon='relationship'] {
+    background-image: url('../svg/relationship.svg')
+}
