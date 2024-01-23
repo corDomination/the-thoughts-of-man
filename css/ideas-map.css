@@ -47,7 +47,9 @@ body {
 }
 .card {
     top: 0;
-    transition: all 0.1s ease-out;
+    transition: 
+    top 0.1s ease-out,
+    background-color 0.1s ease-out;
     position: relative;
     height: 4em;
     width: 12em;
@@ -59,11 +61,24 @@ body {
     background-color: #bbbbbb77;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(12px);
+    pointer-events: all;
 }
-.card:hover {
+.card:hover,
+.card:focus {
     top: -0.25em;
-    padding-bottom: 1.25em;
     background-color: #bbbbbb99;
+}
+.card:focus {
+    transition: 
+    top 0.1s ease-out,
+    background-color 0.1s ease-out,
+    width 0.5s ease-out,
+    height 0.5s ease-out;
+    padding-bottom: 1.25em;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    z-index: 1;
 }
 .card-header {
     display: flex;

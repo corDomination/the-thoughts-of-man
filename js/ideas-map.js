@@ -22,6 +22,7 @@
             title.textContent = entry.title;
             element.id = entry.title;
             contents.innerHTML = md.render(markdownText);
+            element.addEventListener('click', this.onCardClick.bind(this));
             parent.appendChild(element);
         }
     }
@@ -30,6 +31,10 @@
         const template = document.querySelector(`#${id}`);
         const clone = template.content.cloneNode(true);
         return clone;
+    }
+
+    onCardClick() {
+      
     }
   } 
   
