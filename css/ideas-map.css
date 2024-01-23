@@ -1,19 +1,30 @@
 body {
     padding: 1em;
 }
+.page-header {
+    width: 100%;
+    text-align: center;
+    color: #fff;
+}
 .content {
     width: 100%;
     position: relative;
     height: 100%;
 }
 .logo-image-bg {
-    width: 100%;
     /* opacity: 0.4; */
     height: 100%;
+    width: 100%;
+    aspect-ratio: 2.21;
     margin: auto;
     position: absolute;
     z-index: -1;
     background-image: url(../images/thinking-man.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+    filter:brightness(0.75);
     border-radius: 0.5em;
 }
 .idea-map-section-button {
@@ -27,6 +38,7 @@ body {
     border-radius: 0 2em 2em 0;
     border-color: #fa0;
     border-width: 0.25em;
+
 }
 .card-container {
     display: flex;
@@ -34,23 +46,32 @@ body {
     justify-content: center;
 }
 .card {
+    top: 0;
+    transition: all 0.1s ease-out;
+    position: relative;
     height: 4em;
     width: 12em;
     box-shadow: #0005 0px 2px 4px;
-    background-color: #fff;
     padding: 1em;
     margin: 0.5em;
     overflow: hidden;
     border-radius: 0.5em;
-    background-color: rgba(255, 255, 255, 0.45);
+    background-color: #bbbbbb77;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(12px);
+}
+.card:hover {
+    top: -0.25em;
+    padding-bottom: 1.25em;
+    background-color: #bbbbbb99;
 }
 .card-header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    color: #c5e4f0;
+    text-shadow: #00000041 2px 2px;
 }
 .card-contents>p {
     font-size: 0.5em;
@@ -67,6 +88,7 @@ body {
     width: 1.5em;
     background-repeat: no-repeat;
     background-size: cover;
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(35deg) brightness(118%) contrast(119%) drop-shadow(0px 0px 2px #0007);
 }
 .card-icon[data-icon='health'] {
     background-image: url('../images/svg/health.svg')
@@ -79,4 +101,10 @@ body {
 }
 .card-icon[data-icon='relationship'] {
     background-image: url('../images/svg/relationship.svg')
+}
+
+@media screen and (max-width:440px) {
+    .card {
+        width: 45%;
+    }
 }

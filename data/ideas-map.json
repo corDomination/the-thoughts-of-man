@@ -19,6 +19,21 @@
             "title": "Friendship",
             "icon": "friends",
             "url": "friendship.md"
+        },
+        {
+            "title": "Community",
+            "icon": "community",
+            "url": "friendship.md"
+        },
+        {
+            "title": "Service",
+            "icon": "service",
+            "url": "friendship.md"
+        },
+        {
+            "title": "Mental Health",
+            "icon": "mental",
+            "url": "friendship.md"
         }
     ]
 }
