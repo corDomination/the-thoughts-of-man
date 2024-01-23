@@ -2,22 +2,22 @@
     "data": [
         {
             "title": "Relationships",
-            "icon": "",
+            "icon": "relationship",
             "url": "relationships.md"
         },
         {
-            "title": "Diet",
-            "icon": "",
+            "title": "Health",
+            "icon": "health",
             "url": "diet.md"
         },
         {
             "title": "Family",
-            "icon": "",
+            "icon": "family",
             "url": "family.md"
         },
         {
             "title": "Friendship",
-            "icon": "",
+            "icon": "friends",
             "url": "friendship.md"
         }
     ]

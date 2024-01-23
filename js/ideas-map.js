@@ -17,9 +17,11 @@
             const element = template.cloneNode(true);
             const title = element.querySelector('.card-title');
             const icon = element.querySelector('.card-icon');
+            const contents = element.querySelector('.card-contents');
+            icon.dataset.icon = entry.icon;
             title.textContent = entry.title;
             element.id = entry.title;
-            element.innerHTML = md.render(markdownText);
+            contents.innerHTML = md.render(markdownText);
             parent.appendChild(element);
         }
     }

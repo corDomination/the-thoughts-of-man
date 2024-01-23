@@ -1,23 +1,23 @@
-<head>
-    <link rel="shortcut icon" href="thinking-man.png">
-</head>
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <link href="https://unpkg.com/@picocss/pico@1.3.3/css/pico.slim.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="css/ideas-map.css"></style>
 <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
 <script src="js/ideas-map.js"></script>
 <body>
-    <a>The Thoughts of Man</a>
     <div class="content">
-        <img class="logo-image-bg" src="images/thinking-man.png" alt="thinking-man">
+        <div class="logo-image-bg"></div>
+        <div>The Thoughts of Man</div>
+        <div class="card-container"></div>
     </div>
-    <div class="card-container"></div>
 </body>
 
 <template id="card-template">
     <div class="card">
-        <div class="card-title">Default</div>
-        <div class="card-icon">Default</div>
+        <div class="card-header">
+            <div class="card-title"></div>
+            <div class="card-icon"></div>
+        </div>
+        <div class="card-contents"></div>
     </div>
 </template>
-<script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.jsw"></script> 
+<!-- <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.jsw"></script>  -->
