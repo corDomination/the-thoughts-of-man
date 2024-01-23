@@ -14,27 +14,30 @@
         for(const entry of data) {
             const markdownData = await fetch(`data/markdown/${entry.url}`);
             const markdownText = await markdownData.text();
-            const element = template.cloneNode(true);
+            const element = template.cloneNode(true).content.children[0];
             const title = element.querySelector('.card-title');
             const icon = element.querySelector('.card-icon');
             const contents = element.querySelector('.card-contents');
             icon.dataset.icon = entry.icon;
             title.textContent = entry.title;
             element.id = entry.title;
-            contents.innerHTML = md.render(markdownText);
-            element.addEventListener('click', this.onCardClick.bind(this));
-            parent.appendChild(element);
+            const markdown = md.render(markdownText);
+            contents.innerHTML = markdown;
+            const card = parent.appendChild(element);
+            card.addEventListener('click', this.onCardClick.bind(this, markdown));
         }
     }
 
     getTemplate(id) {
         const template = document.querySelector(`#${id}`);
-        const clone = template.content.cloneNode(true);
+        const clone = template.cloneNode(true);
         return clone;
     }
 
-    onCardClick() {
-      
+    onCardClick(markdown) {
+      const content = document.querySelector('.section-content');
+      content.focus();
+      content.innerHTML = markdown;
     }
   } 
   

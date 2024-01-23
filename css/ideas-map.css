@@ -10,6 +10,9 @@ body {
     width: 100%;
     position: relative;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .logo-image-bg {
     /* opacity: 0.4; */
@@ -41,9 +44,16 @@ body {
 
 }
 .card-container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+.glassmorphism {
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    background-color: #bbbbbb77;
+    border-radius: 0.5em;
 }
 .card {
     top: 0;
@@ -53,14 +63,9 @@ body {
     position: relative;
     height: 4em;
     width: 12em;
-    box-shadow: #0005 0px 2px 4px;
     padding: 1em;
     margin: 0.5em;
     overflow: hidden;
-    border-radius: 0.5em;
-    background-color: #bbbbbb77;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(12px);
     pointer-events: all;
 }
 .card:hover,
@@ -74,6 +79,7 @@ body {
     background-color 0.1s ease-out,
     width 0.5s ease-out,
     height 0.5s ease-out;
+    background-color: #bbbbbb99;
     padding-bottom: 1.25em;
     position: absolute;
     width: 80%;
@@ -81,6 +87,8 @@ body {
     z-index: 1;
 }
 .card-header {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -93,9 +101,6 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden; 
-}
-.card-contents {
-    text-overflow: ellipsis;
 }
 .card-icon {
     margin: 0.25em;
@@ -118,8 +123,28 @@ body {
     background-image: url('../images/svg/relationship.svg')
 }
 
+.section-content {
+    transition: all 0.25s linear;
+    height: 0;
+    width: 95%;
+    padding: 1em;
+    opacity: 0;
+    overflow-y: scroll;
+    top: -10em;
+}
+.section-content:focus{
+    height: 80%;
+    opacity: 1;
+    border: none;
+    outline: none;
+}
+
 @media screen and (max-width:440px) {
     .card {
+        height: 2em;
         width: 45%;
+    }
+    .card-contents {
+        display: none;
     }
 }
