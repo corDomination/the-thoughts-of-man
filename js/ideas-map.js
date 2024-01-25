@@ -5,7 +5,7 @@
 
     async prepare() {
         const md = window.markdownit();
-        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/ideas-map.json' : '../data/ideas-map.json';
+        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/ideas-map.json' : '/the-thoughts-of-man/data/ideas-map.json';
         const response = await fetch(url);
         const json = await response.json();
         const data = json.data;

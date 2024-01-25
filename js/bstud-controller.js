@@ -2,9 +2,9 @@ class BstudController {
     constructor() {
         this._data = null;
     }
-
+    
     async prepare() {
-        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/studies.json' : '../data/studies.json';
+        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/studies.json' : 'the-thoughts-of-man/data/studies.json';
         const response = await fetch(url);
         const json = await response.json();
         this._data = json.entries;
