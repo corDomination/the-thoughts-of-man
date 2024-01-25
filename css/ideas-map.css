@@ -80,8 +80,8 @@ body {
     position: relative;
     height: 4em;
     width: 12em;
-    padding: 2.5%;
-    margin: 1.25%;
+    padding: calc(min(0.5em,2.5%));
+    margin: calc(min(0.5em,1.25%));
     overflow: hidden;
     pointer-events: all;
 }
@@ -105,6 +105,10 @@ body {
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-variant: normal;
+    filter: blur(3px);
+}
+.card:focus .card-contents {
+    filter: none;
 }
 .card-contents>p,
 .card-contents>ul {
