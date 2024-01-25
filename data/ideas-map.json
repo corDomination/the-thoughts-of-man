@@ -3,37 +3,51 @@
         {
             "title": "Relationships",
             "icon": "relationship",
-            "url": "relationships.md"
+            "url": "relationships.md",
+            "complete": true
         },
         {
             "title": "Health",
             "icon": "health",
-            "url": "diet.md"
+            "url": "diet.md",
+            "complete": true
         },
         {
             "title": "Family",
             "icon": "family",
-            "url": "family.md"
+            "url": "family.md",
+            "complete": true
         },
         {
             "title": "Friendship",
             "icon": "friends",
-            "url": "friendship.md"
-        },
-        {
-            "title": "Community",
-            "icon": "community",
-            "url": "friendship.md"
+            "url": "friendship.md",
+            "complete": true
         },
         {
             "title": "Service",
-            "icon": "service",
-            "url": "friendship.md"
+            "icon": "friends",
+            "url": "friendship.md",
+            "complete": false
         },
         {
-            "title": "Mental Health",
-            "icon": "mental",
-            "url": "friendship.md"
+            "title": "Community",
+            "icon": "friends",
+            "url": "friendship.md",
+            "complete": false
+        },
+        {
+            "title": "Community",
+            "icon": "friends",
+            "url": "friendship.md",
+            "complete": false
+        },
+        {
+            "title": "Conflict",
+            "icon": "friends",
+            "url": "friendship.md",
+            "complete": false
         }
+
     ]
 }

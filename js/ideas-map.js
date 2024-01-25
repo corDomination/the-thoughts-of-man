@@ -21,10 +21,15 @@
             icon.dataset.icon = entry.icon;
             title.textContent = entry.title;
             element.id = entry.title;
-            const markdown = md.render(markdownText);
-            contents.innerHTML = markdown;
+            element.dataset.color = entry.icon.color;
+            if(entry.complete) {
+              const markdown = md.render(markdownText);
+              contents.innerHTML = markdown;
+            } else {
+              contents.innerHTML = 'Under Construction';
+            }
             const card = parent.appendChild(element);
-            card.addEventListener('click', this.onCardClick.bind(this, markdown));
+            card.addEventListener('click', this.onCardClick.bind(this));
         }
     }
 
@@ -34,10 +39,7 @@
         return clone;
     }
 
-    onCardClick(markdown) {
-      const content = document.querySelector('.section-content');
-      content.focus();
-      content.innerHTML = markdown;
+    async onCardClick() {
     }
   } 
   

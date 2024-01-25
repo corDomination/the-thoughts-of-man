@@ -1,13 +1,13 @@
-Whether you were at the study, or not, I encourage you to read the below, it is a synopsis:
-
-When growing the relationship, try to make sure that the
+When growing the relationship, try to make sure that the...
 * emotional
 * spiritual
 * physical
 * temporal (time)
 * social 
-intimacies all grow with each other. Growing one far beyond the others creates an imbalance and in the long term, the relationship will need each of these to be strong in the long term.
 
+...intimacies all grow with each other.
+
+Growing one far beyond the others creates an imbalance and in the long term, the relationship will need each of these to be strong in the long term.
 When it comes to dating/marrying a spouse who does not share the same faith/beliefs as us, that relationship can work, but you have to remember 2 things.
 1. That person is/may not be striving for heaven (and all of the virtues that we aim for due to this)
 2. That person, if you have children, will spend the same if not more time with them and be extremly influential in the kind of people they grow up to be.

@@ -1,22 +1,22 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<link href="https://unpkg.com/@picocss/pico@1.3.3/css/pico.slim.min.css" rel="stylesheet"/>
 <link rel="stylesheet" href="css/ideas-map.css"></style>
 <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
 <script src="js/ideas-map.js"></script>
 <body>
     <div class="content">
-        <div class="logo-image-bg"></div>
-        <div class="page-header">The Thoughts of Man</div>
+        <div class="header">
+            <div class="title">The Thoughts of Man</div>
+        </div>
         <div class="card-container"></div>
-        <div class="section-content glassmorphism" tabindex="0"></div>
     </div>
 </body>
 
 <template id="card-template">
-    <div class="card glassmorphism" for="html">
+    <div class="card glassmorphism" tabindex="0">
         <div class="card-header">
-            <div class="card-icon"></div>
+            <div class="card-icon icon"></div>
             <div class="card-title"></div>
+            <div class="card-icon icon" data-icon="back-arrow"></div>
         </div>
         <div class="card-contents"></div>
     </div>
