@@ -5,9 +5,7 @@
 
     async prepare() {
         const md = window.markdownit();
-        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/ideas-map.json' : '/the-thoughts-of-man/data/ideas-map.json';
-        const response = await fetch(url);
-        const json = await response.json();
+        const json = await Utility.fetchJSON('data/ideas-map.json');
         const data = json.data;
         const parent = document.querySelector('.card-container');
         const template = this.getTemplate('card-template');
@@ -21,7 +19,6 @@
             icon.dataset.icon = entry.icon;
             title.textContent = entry.title;
             element.id = entry.title;
-            element.dataset.color = entry.icon.color;
             if(entry.complete) {
               const markdown = md.render(markdownText);
               contents.innerHTML = markdown;

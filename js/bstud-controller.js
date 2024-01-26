@@ -4,10 +4,7 @@ class BstudController {
     }
     
     async prepare() {
-        const workingUrl = 'cordomination.github.io/the-thoughts-of-man/data/studies.json'
-        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? 'data/studies.json' : 'cordomination.github.io/the-thoughts-of-man/data/studies.json';
-        const response = await fetch(url);
-        const json = await response.json();
+        const json = await Utility.fetchJSON('data/studies.json')
         this._data = json.entries;
         const sectionTemplate = document.querySelector('.page-section');
         const body = document.querySelector('body');
@@ -17,11 +14,11 @@ class BstudController {
             title.textContent = data.name;
             const caption = section.querySelector('.page-section-caption');
             caption.textContent = data.date;
-            const contents = section.querySelector('.page-section-contents-list');
-            for (const entry of data.contents) {
-                const li = document.createElement('li');
-                li.textContent = entry;
-                contents.appendChild(li);
+            const contentsList = section.querySelector('.page-section-contents-list');
+            if (typeof data.contents === 'string') {
+                await this._prepareMarkdownStudy(contentsList, data.contents);
+            } else {
+                this._prepareJSONStudy(contentsList, data)
             }
             const links = section.querySelector('.page-section-links');
             for(const entry of data.links) {
@@ -33,6 +30,22 @@ class BstudController {
             body.appendChild(section);
         }
         sectionTemplate.remove();
+    }
+
+    _prepareJSONStudy(parent, data) {
+        for (const entry of data.contents) {
+            const li = document.createElement('li');
+            li.textContent = entry;
+            parent.appendChild(li);
+        }
+    }
+
+    async _prepareMarkdownStudy(parent, studyName) {
+        const md = window.markdownit();
+        const markdownData = await fetch(`data/markdown/studies/${studyName}.md`);
+        const markdownText = await markdownData.text();
+        const markdown = md.render(markdownText);
+        parent.innerHTML = markdown;
     }
 }
 
