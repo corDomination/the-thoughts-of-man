@@ -1,6 +1,6 @@
 class Utility {
     static async fetchJSON(filePath) {
-        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? `${filePath}` : `https://${location.hostname}/the-thoughts-of-man/${filePath}`;
+        let url = (location.hostname === "localhost" || location.hostname === "127.0.0.1") ? `${filePath}` : `/the-thoughts-of-man/${filePath}`;
         const response = await fetch(url);
         const json = await response.json();
         return json;
