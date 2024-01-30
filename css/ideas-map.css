@@ -1,20 +1,41 @@
 :root {
-    --primary-color: #FDF0D1;
-    --secondary-color: #AC7D88;
-    --tertiary-color: #85586F;
-    --quaternary-color: #643843;
+    --primary-color: #EEE9DA;
+    --secondary-color: #BDCDD6;
+    --tertiary-color: #93BFCF;
+    --quaternary-color: #40687e;
+    --text-color: #000;
 
-    --glassmorphism-color: #FDF0D177;
+    --glassmorphism-color: #eee9dab5;
+
+    --transiton-duration-short: 0.25s;
 }
 
 html {
     overscroll-behavior: none;
+    height: 100%;
 }
 body {
+    height: 100vh;
     margin: 0;
     background: linear-gradient(var(--secondary-color),var(--tertiary-color));
     font-family: sans-serif;
     font-variant: small-caps;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/thinking-man.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
 }
 .header {
     width: 100%;
@@ -28,10 +49,13 @@ body {
 .title {
     font-size: 1.25em;
     font-weight: bold;
-    width: 97%;
+    width: 100%;
     height: 2em;
-    border-bottom: solid 2px #ffff;
-    margin: 0.5em 0;
+    border-bottom: solid 2px var(--quaternary-color);
+    padding: 0.25em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .title-icon {
     margin: 0.25em;
@@ -41,37 +65,44 @@ body {
     background-size: cover;
     filter: invert(1);
 }
-.content {
-    width: 100%;
-    position: relative;
-    height: 100%;
+.home-icon-container {
+    position: absolute;
+    top: 0.6em;
+    left: 0.5em;
+    border-radius: 2em;
+    background-color: var(--tertiary-color);
+    width: 3em;
+    display: flex;
+    justify-content: center;
+
+    .icon {       
+        height: 1.5em;
+        width: 1.5em;
+    }
+}
+.card-selected-details {
+    overflow-y: hidden;
+    margin: 0.5em;
+    width: auto;
+    padding: 0.25em;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    opacity: 1;
 }
-.logo-image-bg {
-    /* opacity: 0.4; */
-    height: 100%;
-    width: 100%;
-    aspect-ratio: 2.21;
-    margin: auto;
-    position: absolute;
-    z-index: -1;
-    background-image: url(../images/thinking-man.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
-    background-size: cover;
-    filter:brightness(0.25);
-    border-radius: 0.5em;
+.card-selected-details[hidden] {
+    display: none;
 }
 .card-container {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    height: 90%;
+    flex-wrap: wrap;
+    flex-direction: row;
     align-content: flex-start;
+    margin-top: 0.25em;
+}
+.card-container[hidden] {
+    display: none;
 }
 .glassmorphism {
     backdrop-filter: blur(12px);
@@ -81,10 +112,9 @@ body {
 }
 .card {
     position: relative;
-    height: 4em;
-    width: 12em;
-    padding: calc(min(0.5em,2.5%));
-    margin: calc(min(0.5em,1.25%));
+    height: 3em;
+    padding: 0.25em;
+    margin: 0.25em;
     overflow: hidden;
     pointer-events: all;
 }
@@ -95,29 +125,29 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: left;
-    color: #643843;
-    margin-top: 0.5em;
+    color: var(--quaternary-color);
     position: relative;
+    padding: 1em 0;
 }
 .card-title {
     font-size: 1.125em;
 }
 .card-contents {
-    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-variant: normal;
-    filter: blur(3px);
-}
-.card:focus .card-contents {
-    filter: none;
+    padding: 0 1em;
+    border-top: dashed 1px var(--quaternary-color);
+    overflow-y: scroll;
 }
 .card-contents>p,
 .card-contents>ul {
     margin: 0.25em;
     font-size: 1em;
 }
+/* Icons */
 .card-icon {
     margin: 0.25em;
     height: 1em;
@@ -144,47 +174,89 @@ body {
 .icon[data-icon='back-arrow'] {
     mask-image: url('../images/svg/back-arrow.svg')
 }
-.card-container:focus-within .card:not(:focus) {
-    display: none;
+.icon[data-icon='home'] {
+    mask-image: url('../images/svg/home.svg')
 }
-.card:focus {
-    position: relative;
-    width: 100%;
-    height: 96%;
-    max-height: 100%;
-    z-index: 1;
-    overflow-y: scroll;
-}
-
 .card .icon[data-icon='back-arrow'] {
     display: none;
 }
-.card:focus .icon[data-icon='back-arrow'] {
+.icon[data-icon='back-arrow'] {
     display: block;
     position: absolute;
     right: 0;
-    top: -0.5em;
     height: 1.5em;
     width: 1.5em;
     margin: 0;
 }
 
 @media screen and (max-width:440px) {
-    .card {
-        height: 2em;
-        width: 42.5%;
-    }
-    .card-contents {
-        display: none;
-    }
-    .card:focus .card-contents {
-        display: flex;
-    }
+}
+.card-contents>* {
+    animation-name: slidein;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
+    opacity: 0;
 }
 
-@media screen and (min-width:440px) {
-    .card:hover,
-    .card:focus {
-        top: -0.25em;
-    }
+@keyframes slidein {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+    
+      to {
+        opacity: 1;
+        transform: translateX(0px);
+      }
+}
+
+/* Deprecated */
+.logo-image-bg {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 2.21;
+    margin: auto;
+    position: absolute;
+    z-index: -1;
+    background-image: url(../images/thinking-man.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: cover;
+    filter:brightness(0.25);
+    border-radius: 0.5em;
+}
+.enter-0 {
+    animation-delay: 0.0s;
+}
+.enter-1 {
+    animation-delay: 0.1s;
+}
+.enter-2 {
+    animation-delay: 0.2s;
+}
+.enter-3 {
+    animation-delay: 0.3s;
+}
+.enter-4 {
+    animation-delay: 0.4s;
+}
+.enter-5 {
+    animation-delay: 0.5s;
+}
+.enter-6 {
+    animation-delay: 0.6s;
+}
+.enter-7 {
+    animation-delay: 0.7s;
+}
+.enter-8 {
+    animation-delay: 0.8s;
+}
+.enter-9 {
+    animation-delay: 0.9s;
+}
+.enter-10 {
+    animation-delay: 1.0s;
 }
