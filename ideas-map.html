@@ -3,18 +3,16 @@
 </style>
 <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
 <script src="js/utility.js"></script>
+<script src="js/element-visibility-controller.js"></script>
 <script src="js/ideas-map.js"></script>
 
 <body>
     <div class="header">
-        <div class="home-icon-container">
-            <div class="card-icon icon" data-icon="home"></div>
-        </div>
         <div class="title">The Thoughts of Man</div>
     </div>
     <div class="content">
         <div class="card-container"></div>
-        <div class="glassmorphism card-selected-details">
+        <div class="card-selected-details" hidden>
             <div class="card-header">
                 <div class="card-icon icon"></div>
                 <div class="card-title"></div>

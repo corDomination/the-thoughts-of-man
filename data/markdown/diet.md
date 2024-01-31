@@ -1,1 +1,8 @@
-Eat unprocessed food.
+- Hydrate well.
+- Minimize processed foods.
+- Cut the sugary drinks and candy.
+- Cardio frequently, focus on healthy heart and strong lungs, lowering resting heart rate, allowing your heart to not have to work as hard.
+- Sleep well.
+- Get outside.
+- Do functional exercise that will translate to your real life needs/activites
+- Bodyweight 2-3x per week, keep all parts of the body strong and active.

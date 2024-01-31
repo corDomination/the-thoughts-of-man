@@ -16,13 +16,13 @@
             "title": "Family",
             "icon": "family",
             "url": "family.md",
-            "complete": true
+            "complete": false
         },
         {
             "title": "Friendship",
             "icon": "friends",
             "url": "friendship.md",
-            "complete": true
+            "complete": false
         },
         {
             "title": "Service",
@@ -33,7 +33,7 @@
         {
             "title": "Community",
             "icon": "friends",
-            "url": "friendship.md",
+            "url": "community.md",
             "complete": false
         },
         {
