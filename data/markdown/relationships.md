@@ -1,8 +1,8 @@
 ### Are you meeting your own standards?
 For those not in a relationship:
-    - If you have a high standard for the person you are looking for, make sure to ask the question, am I taking the steps to be worthy of such a person?
+- If you have a high standard for the person you are looking for, make sure to ask the question, am I taking the steps to be worthy of such a person?
 For those in a relationship:
-    - Do you call your spouse to greater virtue with how you carry yourself and how you love them?
+- Do you call your spouse to greater virtue with how you carry yourself and how you love them?
 
 ### Balancing Intimacies
 When growing the relationship, try to make sure that the...
@@ -29,7 +29,7 @@ This massively helped us in the long run since we made it such an intentional ha
 
 ### Parental Protection
 One of the things parents often do (and that my mom did do), is put up restrictions to different aspects of their children's dating relationship for the good of their child.
-I started dating my wife in early highschool, and one of the things my mom did was limit how much time we spent with eachother per week and how much time we had totally alone together.
+I started dating my wife in early highschool, and one of the things my mom did was limit how much time we spent with each other per week and how much time we had totally alone together.
 This was done out of a love, and to generalize this practice my mom implemented; It can be useful to restrict and curate how much and in what scenarios you interact with you signifcant other. 
 These restrictions, implemented out of love, provided a protective framework that contributed to our relationship's health.
 Protect and nurture your relationship as a loving parent would for their child.
