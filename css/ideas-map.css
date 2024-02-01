@@ -167,7 +167,6 @@ body {
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-variant: normal;
-    padding: 0 1em;
     border-top: dashed 1px var(--quaternary-color);
     overflow-y: scroll;
 }
