@@ -1,6 +1,6 @@
-The Study of Paul: Pt 2
+# The Study of Paul: Pt 2
 
-Timeline of Pauls life:
+## Timeline of Pauls life:
 - A.D. 37: Converted on the road to Damascus
 - A.D. 37-40: Spends three years in Arabia
 - A.D. 40-44: Preaches and ministers in Tarsus and surrounding regions
@@ -20,8 +20,6 @@ Timeline of Pauls life:
 - A.D. 67 or 68: Martyred under Nero’s persecution
 
 [Acts 9: Sauls Conversion and Baptism: 10-31](https://www.biblegateway.com/passage/?search=Acts%209&version=NABRE)
-
-What about Paul 
 
 Agrippa was the king of large chunks of Judea.
 [Acts 26:2-18](https://www.biblegateway.com/passage/?search=Acts%2026&version=NABRE)
@@ -45,5 +43,7 @@ Martha, Martha!
 Simon, Simon! 
 Saul, Saul! 
 
-Repetition of the name? Why?
+# Repetition of the name? Why?
+When has your name been repeated?
+What do you think God would repeat your name for?
 
