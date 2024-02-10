@@ -10,7 +10,7 @@
             "title": "Health",
             "icon": "health",
             "url": "diet.md",
-            "complete": true
+            "complete": false
         },
         {
             "title": "Family",

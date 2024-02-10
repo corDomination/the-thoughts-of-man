@@ -1,3 +1,11 @@
+### How do you find someone?
+Ask 4 questions.
+
+What is your motivation to get into a relationship?
+What kind of person do I want?
+Where am I likely to find said person?
+How can I prepare myself to be a person they would be interested in?
+
 ### Are you meeting your own standards?
 For those not in a relationship:
 - If you have a high standard for the person you are looking for, make sure to ask the question, am I taking the steps to be worthy of such a person?
@@ -7,16 +15,16 @@ For those in a relationship:
 ### Balancing Intimacies
 When growing the relationship, try to make sure that the...
 * emotional
-* spiritual
 * physical
+* spiritual
 * temporal (time)
 * social 
 ...intimacies all grow with each other.
 Allowing one aspect to overshadow the others creates imbalance, impacting the relationship's long-term strength.
 
 ### Interfaith Relationships
-Dating or marrying someone with different beliefs is possible, but two important considerations arise:
-1. The person may not share the same spiritual goals, impacting virtues and aspirations.
+Dating or marrying someone with different beliefs/morals is possible, but two important considerations arise:
+1. The person may not share the same moral/spiritual/life goals, impacting virtues and aspirations.
 2. If children are involved, the partner's influence on their upbringing is significant, requiring careful consideration.
 
 ### Communication is Key
@@ -52,10 +60,9 @@ your best friend.
 - Compliment their good/virtuous traits.
 - Plan activites with them in mind.
 
-### Ephesians 5:25-29 / Embracing Sacrificial Love
-To bring this back to scripture,
+### Embracing Sacrificial Love
 Ephesians 5:25-29: Husbands, love your wives, as Christ loved the church and gave himself up for her, that he might sanctify her.
-Serve and love the person you are with, and always be preparing yourself for the sacrifice we are called to.
+Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for you.
 
 ### Learning from the Struggles of Others
 If your parents modeled marriage well for you, then learn to imitate the best qualities of their marriage.
