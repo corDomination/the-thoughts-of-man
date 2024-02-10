@@ -1,10 +1,10 @@
 ### How do you find someone?
 Ask 4 questions.
 
-What is your motivation to get into a relationship?
-What kind of person do I want?
-Where am I likely to find said person?
-How can I prepare myself to be a person they would be interested in?
+- What is your motivation to get into a relationship?
+- What kind of person do I want?
+- Where am I likely to find said person?
+- How can I prepare myself to be a person they would be interested in?
 
 ### Are you meeting your own standards?
 For those not in a relationship:
@@ -62,7 +62,7 @@ your best friend.
 
 ### Embracing Sacrificial Love
 Ephesians 5:25-29: Husbands, love your wives, as Christ loved the church and gave himself up for her, that he might sanctify her.
-Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for you.
+Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for their sake.
 
 ### Learning from the Struggles of Others
 If your parents modeled marriage well for you, then learn to imitate the best qualities of their marriage.
