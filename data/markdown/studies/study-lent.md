@@ -40,3 +40,5 @@ Do you help people and not seek recognition?
 Do you use your generosity and kindness as a token to improve your image?
 
 Ask these questions regularly.
+
+The realization that comes from Matthew 6 is that the most saintly, virtuous people, may go unnoticed by the world and by you.
