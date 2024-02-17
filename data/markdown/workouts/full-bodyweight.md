@@ -1,16 +1,15 @@
-## Workout
-**2x**
+### 2x
 - Pushups
 - Supermans
 - Tri pushes
 - Hip Taps
 
-**1x**
+### 1x
 - Plank
 - Diamond pushups
 - Fire hydrants
-- Chin ups
+- Chin-ups
 
-**1x**
+### 1x
 - Leg raises
 - Pointing dogs

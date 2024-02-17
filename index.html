@@ -25,7 +25,6 @@
         </a>
     </div>
     <div class="content">
-        <div class="sections-container"></div>
         <div class="card-selected-details" hidden>
             <div class="card-header">
                 <div class="card-icon icon"></div>
@@ -40,9 +39,32 @@
 <template id="card-template">
     <div class="card glassmorphism" tabindex="0">
         <div class="card-header">
-            <div class="card-icon icon"></div>
-            <div class="card-title"></div>
+            <div class="card-upper-contents">
+                <div class="card-icon icon"></div>
+                <div class="card-title"></div>
+            </div>
+            <div class="card-date"></div>
         </div>
+    </div>
+</template>
+
+<template id="workouts-template">
+    <div class="additional-content">
+        <div class="descriptive-text">These workouts are intended to be done with 0-15 seconds of rest between reps and
+            sets. Between each section take 1-2 minutes of rest. To get the full benefit of these workouts, good sleep,
+            hydration, and nutrition are needed.</div>
+    </div>
+</template>
+
+<template id="home-template">
+    <div class="additional-content">
+        <div class="descriptive-text">Welcome, enjoy parusing my thoughts and my passions.</div>
+        <br>
+        <div class="descriptive-text"> </div>
+        <!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/AvpXCcjz7bU?si=ykuOsMbnJnzrtDUo"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe> -->
     </div>
 </template>
 

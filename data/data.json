@@ -140,6 +140,11 @@
                     "title": "Full Body (15 min)",
                     "icon": "health",
                     "url": "full-bodyweight"
+                },
+                {
+                    "title": "Military Style Bodyweight w/ bar (30 min)",
+                    "icon": "health",
+                    "url": "millitary-style-bodyweight-bar"
                 }
             ]
         }

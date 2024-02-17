@@ -30,7 +30,6 @@ class ElementVisibilityController {
     } else {
       this._timeout = null;
       this._promiseDetails.resolve(true);
-      this._promiseDetails = null;
     }
     await this._promiseDetails.promise;
   }

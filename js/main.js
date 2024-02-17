@@ -20,23 +20,38 @@ class IdeasMapController {
     const md = window.markdownit();
     const json = await Utility.fetchJSON('data/data.json');
     const sections = json.sections;
-    const sectionsContainer = document.querySelector('.sections-container');
+    const sectionsContainer = document.querySelector('.content');
     for (const sectionData of sections) {
       const section = this.getTemplate('section-group-template');
       section.dataset.topic = sectionData.name;
+
+      if (sectionData.name === 'home') {
+        const homeTemplate = this.getTemplate('home-template');
+        section.appendChild(homeTemplate);
+      }
+      if (sectionData.name === 'workouts') {
+        const workoutsTemplate = this.getTemplate('workouts-template');
+        section.appendChild(workoutsTemplate);
+      }
+
       const template = this.getTemplate('card-template');
       for (const entry of sectionData.data) {
         const markdownData = await fetch(`data/markdown/${sectionData.name}/${entry.url}.md`);
+        const unformattedDate = markdownData.headers.get('Last-Modified');
+        const lastEditedDate = Utility.parseDateHeader(unformattedDate);
+        console.log(lastEditedDate, unformattedDate);
         const markdownText = await markdownData.text();
         const element = template.cloneNode(true);
         const title = element.querySelector('.card-title');
         const icon = element.querySelector('.card-icon');
+        const date = element.querySelector('.card-date');
         icon.dataset.icon = entry.icon;
         title.textContent = entry.title;
         element.id = entry.title;
         if (typeof entry.complete !== 'undefined' && !entry.complete) {
           element.classList.add('disabled');
         }
+        date.textContent = typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
         const ideaContent = md.render(markdownText);
         const card = section.appendChild(element);
         this._cardDataMap.set(card, {
@@ -58,8 +73,8 @@ class IdeasMapController {
   }
 
   async setActiveSection(name) {
-    await this.setCard(null, true);
     if (name === this._activeSection || this._transitioning) { return; }
+    await this.setCard(null, true);
     document.documentElement.dataset.section = name;
     this._transitioning = true;
     const lastSection = this._sections.get(this._activeSection);
@@ -80,6 +95,7 @@ class IdeasMapController {
     this._selectedCard = card;
 
     if (card !== null) {
+      window.scrollTo(0, 0);
       const data = this._cardDataMap.get(card);
       this._contentIcon.dataset.icon = data.entry.icon;
       this._contentTitle.textContent = data.entry.title;
