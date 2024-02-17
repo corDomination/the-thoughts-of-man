@@ -1,6 +1,6 @@
-import { ElementVisibilityController } from './js/element-visibility-controller.js';
-import { TimerController } from './js/timer-controller.js';
-import { Utility } from './js/utility.js';
+import { ElementVisibilityController } from './element-visibility-controller.js';
+import { TimerController } from './timer-controller.js';
+import { Utility } from './utility.js';
 
 class IdeasMapController {
   constructor() {
