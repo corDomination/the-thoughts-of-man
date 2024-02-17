@@ -1,4 +1,4 @@
-import { Utility } from '/js/utility.js';
+import { Utility } from './js/utility.js';
 
 export class TimerController {
   constructor(parent) {
