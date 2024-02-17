@@ -5,7 +5,7 @@ What is Lent?
 Why 40 days?
 - Forty is typically indicative of a time of testing, trial, penance, purification, and renewal.
 
-## The origin of Lent as a practice
+### The origin of Lent as a practice
 - Matthew 4: 1-11
 - Mark 1:12-15
 
@@ -18,15 +18,15 @@ One of the most important verses in the bible to take heed of
 
 What about this stands out to you?
 
-## A model for service
+### A model for service
 What then, does an ideal Christian, loving his serving his neighbor, look like taking what Jesus has said here?
 How do you carry out your righteous deeds?
 
-## Prayer
+### Prayer
 - How can our prayer increase during this time?
-## Fasting
+### Fasting
 - Why are we encouraged to fast?
-## Almsgiving
+### Almsgiving
 - CCC 2462: Giving alms to the poor is a witness to fraternal charity: it is also a work of justice pleasing to God.
 - What can we give?
 - In what are we most wealthy, and how can we give that away?

@@ -38,7 +38,7 @@ This massively helped us in the long run since we made it such an intentional ha
 ### Parental Protection
 One of the things parents often do (and that my mom did do), is put up restrictions to different aspects of their children's dating relationship for the good of their child.
 I started dating my wife in early highschool, and one of the things my mom did was limit how much time we spent with each other per week and how much time we had totally alone together.
-This was done out of a love, and to generalize this practice my mom implemented; It can be useful to restrict and curate how much and in what scenarios you interact with you signifcant other. 
+This was done out of love, and to generalize this practice my mom implemented; It can be useful to restrict and curate how much and in what scenarios you interact with you signifcant other. 
 These restrictions, implemented out of love, provided a protective framework that contributed to our relationship's health.
 Protect and nurture your relationship as a loving parent would for their child.
 Protect the beauty, the virtuous, the precious parts of the relationship and let go of the selfish, hedonistic, obsessive, and damaging behaviors.
@@ -63,6 +63,8 @@ your best friend.
 ### Embracing Sacrificial Love
 Ephesians 5:25-29: Husbands, love your wives, as Christ loved the church and gave himself up for her, that he might sanctify her.
 Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for their sake.
+
+When you are dating, this is not the standard you need to hold while dating, but rather the standard you *will* be aiming for and should prepare yourself for if/when you get married.
 
 ### Learning from the Struggles of Others
 If your parents modeled marriage well for you, then learn to imitate the best qualities of their marriage.

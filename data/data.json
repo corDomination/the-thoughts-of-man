@@ -1,0 +1,147 @@
+{
+    "sections":
+    [
+        {
+            "name": "home",
+            "data": []
+        },
+        {
+            "name": "articles",
+            "data": [
+                {
+                    "title": "Relationships",
+                    "icon": "relationship",
+                    "url": "relationships"
+                },
+                {
+                    "title": "Health",
+                    "icon": "health",
+                    "url": "diet"
+                },
+                {
+                    "title": "Family",
+                    "icon": "family",
+                    "url": "family",
+                    "complete": false
+                },
+                {
+                    "title": "Friendship",
+                    "icon": "friends",
+                    "url": "friendship",
+                    "complete": false
+                },
+                {
+                    "title": "Service",
+                    "icon": "friends",
+                    "url": "friendship",
+                    "complete": false
+                },
+                {
+                    "title": "Community",
+                    "icon": "friends",
+                    "url": "community",
+                    "complete": false
+                },
+                {
+                    "title": "Community",
+                    "icon": "friends",
+                    "url": "friendship",
+                    "complete": false
+                },
+                {
+                    "title": "Conflict",
+                    "icon": "friends",
+                    "url": "friendship",
+                    "complete": false
+                }
+            ]
+        },
+        {
+            "name": "studies",
+            "data": [
+                {
+                    "title": "James and Pro Life Discussion",
+                    "icon": "prayer",
+                    "date": "11/8/2023",
+                    "url": "study-pro-life"
+                },
+                {
+                    "title": "Gratitude and the goodness of Creation",
+                    "icon": "prayer",
+                    "date": "11/16/2023",
+                    "url": "goodness-of-creation"
+                },
+                {
+                    "title": "Baptism",
+                    "icon": "prayer",
+                    "date": "11/30/2023",
+                    "url": "baptism"
+                },
+                {
+                    "title": "What should we choose to focus on?",
+                    "icon": "prayer",
+                    "date": "12/7/2023",
+                    "url": "what-to-focus-on"
+                },
+                {
+                    "title": "Christmas, Tradition, and Our Culture",
+                    "icon": "prayer",
+                    "date": "12/21/2023",
+                    "url": "christmas"
+                },
+                {
+                    "title": "Protecting others, self defense, and Exercise",
+                    "icon": "prayer",
+                    "date": "01/04/2024",
+                    "url": "protecting-others"
+                },
+                {
+                    "title": "Love, with and without hardship",
+                    "icon": "prayer",
+                    "date": "01/11/2024",
+                    "url": "the-hardship-of-love"
+                },
+                {
+                    "title": "Relationships / Dating",
+                    "icon": "prayer",
+                    "date": "01/18/2024",
+                    "url": "relationships"
+                },
+                {
+                    "title": "Paul the Apostle: Pt 1",
+                    "icon": "prayer",
+                    "date": "01/25/2024",
+                    "url": "study-paul-acts"
+                },
+                {
+                    "title": "Paul the Apostle: Pt 2",
+                    "icon": "prayer",
+                    "date": "02/01/2024",
+                    "url": "study-paul-acts-2"
+                },
+                {
+                    "title": "Isaiah 53",
+                    "icon": "prayer",
+                    "date": "02/08/2024",
+                    "url": "study-isiah-53"
+                },
+                {
+                    "title": "Lent",
+                    "icon": "prayer",
+                    "date": "02/15/2024",
+                    "url": "study-lent"
+                }
+            ]
+        },
+        {
+            "name": "workouts",
+            "data": [
+                {
+                    "title": "Full Body (15 min)",
+                    "icon": "health",
+                    "url": "full-bodyweight"
+                }
+            ]
+        }
+    ]
+}

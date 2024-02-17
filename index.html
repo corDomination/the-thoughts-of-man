@@ -1,17 +1,31 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
-<link rel="stylesheet" href="css/ideas-map.css">
+<link rel="stylesheet" href="css/style.css">
 </style>
 <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
 <script src="js/utility.js"></script>
 <script src="js/element-visibility-controller.js"></script>
-<script src="js/ideas-map.js"></script>
+<script src="js/main.js"></script>
 
 <body>
+    <div class="body-overlay"></div>
     <div class="header">
-        <div class="title">The Thoughts of Man</div>
+        <a class="header-link" data-section="home">
+            <div class="icon header-icon" data-icon="home"></div>
+        </a>
+        <a class="header-link" data-section="articles">
+            <div class="icon header-icon" data-icon="thinking"></div>
+        </a>
+        <div class="title">The <div class="title-word"></div> of Man</div>
+        <a class="header-link" data-section="workouts">
+            <div class="icon header-icon" data-icon="health"></div>
+        </a>
+
+        <a class="header-link" data-section="studies">
+            <div class="icon header-icon" data-icon="book"></div>
+        </a>
     </div>
     <div class="content">
-        <div class="card-container"></div>
+        <div class="sections-container"></div>
         <div class="card-selected-details" hidden>
             <div class="card-header">
                 <div class="card-icon icon"></div>
@@ -30,4 +44,8 @@
             <div class="card-title"></div>
         </div>
     </div>
+</template>
+
+<template id="section-group-template">
+    <div class="section-group" hidden></div>
 </template>
