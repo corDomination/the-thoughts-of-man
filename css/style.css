@@ -73,18 +73,28 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0.5;
-    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-        linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
-        linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    opacity: 1;
+    background-image: linear-gradient(45deg, #00f2, #f002);
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
-    animation: textclip 2s linear infinite;
+    animation: background-loop 5s ease-in-out infinite;
 }
-@keyframes textclip {
-    to {
-      background-position: 200% center;
+@keyframes background-loop {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 100% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    75% {
+      background-position: 0% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
     }
   }
 .content {
@@ -104,7 +114,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border-bottom: solid 2px var(--quaternary-color);
+    box-shadow: 0px 0px 5px 1px #0007;
 }
 .additional-content {
     font-size: 1em;
@@ -190,9 +200,13 @@ body {
     flex-direction: row;
     align-content: flex-start;
     margin-top: 0.25em;
-    transition: opacity var(--transiton-duration-short) ease-in-out;
+    transition: 
+        opacity var(--transiton-duration-short) ease-in-out,
+        top var(--transiton-duration-short) ease-in-out;
     opacity: 1;
     overflow-y: auto;
+    top: 0;
+    position: relative;
 }
 .section-group.visibility-animating {
     pointer-events: none;
@@ -200,6 +214,7 @@ body {
 .section-group[hidden] {
     pointer-events: none;
     opacity: 0;
+    top: -10em;
 }
 .section-group[hidden]:not(.visibility-animating) {
     display: none;
@@ -270,6 +285,33 @@ body {
     margin: 0.25em;
     font-size: 1em;
 }
+.timer {
+    position: absolute;
+    bottom: 0.25em;
+    right: 0.25em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.25em;
+    width: 10em;
+    background-color: var(--secondary-color);
+    justify-content: space-between;
+}
+.timer[hidden] {
+    display: none;
+}
+.timer-time-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: auto;
+}
+.timer-time {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--quaternary-color);
+}
 
 /* Icons */
 .card-icon {
@@ -312,6 +354,16 @@ body {
 .icon[data-icon='prayer'] {
     mask-image: url('../images/svg/prayer.svg')
 }
+.icon[data-icon='play'] {
+    mask-image: url('../images/svg/play.svg')
+}
+.icon[data-icon='pause'] {
+    mask-image: url('../images/svg/pause.svg')
+}
+.icon[data-icon='reset'] {
+    mask-image: url('../images/svg/reset.svg')
+}
+
 .card .icon[data-icon='back-arrow'] {
     display: none;
 }

@@ -1,45 +1,53 @@
+import { ElementVisibilityController } from '/js/element-visibility-controller.js';
+import { TimerController } from '/js/timer-controller.js';
+import { Utility } from '/js/utility.js';
+
 class IdeasMapController {
   constructor() {
     this._selectedCard = null;
     this._cardDataMap = new Map();
     this._titleWord = document.querySelector('.title-word');
-    this._contents = document.querySelector('.card-selected-details');
+    this._cardSelectedDetails = document.querySelector('.card-selected-details');
     this._contentsHeader = document.querySelector('.card-header');
-    this._contentTitle = this._contents.querySelector('.card-title');
-    this._contentIcon = this._contents.querySelector('.card-icon');
-    this._contentContents = this._contents.querySelector('.card-contents');
+    this._contentTitle = this._cardSelectedDetails.querySelector('.card-title');
+    this._contentIcon = this._cardSelectedDetails.querySelector('.card-icon');
+    this._contentContents = this._cardSelectedDetails.querySelector('.card-contents');
     this._sections = new Map();
     this._activeSection = null;
     this._animationDuration = 250;
-    this._contentsVisibilityController = new ElementVisibilityController(this._contents, this._animationDuration);
+    this._contentsVisibilityController = new ElementVisibilityController(this._cardSelectedDetails, this._animationDuration);
     this._transitioning = false;
+    this._timerController = null;
+    this._timerController = null;
   }
 
   async prepare() {
     this._setupHeaderLinks();
-    const md = window.markdownit();
+    const md = window.markdownit()
     const json = await Utility.fetchJSON('data/data.json');
     const sections = json.sections;
     const sectionsContainer = document.querySelector('.content');
     for (const sectionData of sections) {
-      const section = this.getTemplate('section-group-template');
+      const section = Utility.getTemplate('section-group-template');
       section.dataset.topic = sectionData.name;
 
       if (sectionData.name === 'home') {
-        const homeTemplate = this.getTemplate('home-template');
+        const homeTemplate = Utility.getTemplate('home-template');
         section.appendChild(homeTemplate);
+        // sectionData.data.append() // TODO: Append 5 links to recent entries.
       }
       if (sectionData.name === 'workouts') {
-        const workoutsTemplate = this.getTemplate('workouts-template');
+        const workoutsTemplate = Utility.getTemplate('workouts-template');
         section.appendChild(workoutsTemplate);
+        this._timerController = new TimerController(this._cardSelectedDetails);
+        this._timerController.prepare();
       }
 
-      const template = this.getTemplate('card-template');
+      const template = Utility.getTemplate('card-template');
       for (const entry of sectionData.data) {
         const markdownData = await fetch(`data/markdown/${sectionData.name}/${entry.url}.md`);
         const unformattedDate = markdownData.headers.get('Last-Modified');
         const lastEditedDate = Utility.parseDateHeader(unformattedDate);
-        console.log(lastEditedDate, unformattedDate);
         const markdownText = await markdownData.text();
         const element = template.cloneNode(true);
         const title = element.querySelector('.card-title');
@@ -74,10 +82,11 @@ class IdeasMapController {
 
   async setActiveSection(name) {
     if (name === this._activeSection || this._transitioning) { return; }
-    await this.setCard(null, true);
     document.documentElement.dataset.section = name;
     this._transitioning = true;
+    await this.setCard(null, true);
     const lastSection = this._sections.get(this._activeSection);
+
     if (typeof lastSection !== 'undefined') {
       await lastSection.visibilityController.setVisible(false);
     }
@@ -91,7 +100,6 @@ class IdeasMapController {
 
   async setCard(card, immediate = false) {
     if (this._selectedCard === card) { return; }
-    const exists = card !== null;
     this._selectedCard = card;
 
     if (card !== null) {
@@ -107,6 +115,8 @@ class IdeasMapController {
       }
     }
     const currentSection = this._sections.get(this._activeSection);
+    this._timerController.setVisible(currentSection.name === 'workouts' && card !== null);
+    const exists = card !== null;
     if (card === null) {
       await this._contentsVisibilityController.setVisible(exists, immediate);
       await currentSection.visibilityController.setVisible(!exists, immediate);
@@ -114,12 +124,6 @@ class IdeasMapController {
       await currentSection.visibilityController.setVisible(!exists, immediate);
       await this._contentsVisibilityController.setVisible(exists, immediate);
     }
-  }
-
-  getTemplate(id) {
-    const template = document.querySelector(`#${id}`);
-    const clone = template.cloneNode(true).content.children[0];
-    return clone;
   }
 
   onCardClick(card) {

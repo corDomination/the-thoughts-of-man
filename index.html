@@ -1,10 +1,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <link rel="stylesheet" href="css/style.css">
-</style>
-<script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
-<script src="js/utility.js"></script>
-<script src="js/element-visibility-controller.js"></script>
-<script src="js/main.js"></script>
+<script src="js/lib/markdown-it.min.js"></script>
+<script src="js/main.js" type="module"></script>
 
 <body>
     <div class="body-overlay"></div>
@@ -53,6 +50,7 @@
         <div class="descriptive-text">These workouts are intended to be done with 0-15 seconds of rest between reps and
             sets. Between each section take 1-2 minutes of rest. To get the full benefit of these workouts, good sleep,
             hydration, and nutrition are needed.</div>
+
     </div>
 </template>
 
@@ -70,4 +68,14 @@
 
 <template id="section-group-template">
     <div class="section-group" hidden></div>
+</template>
+
+<template id="timer-template">
+    <div class="timer glassmorphism">
+        <div class="timer-state-button card-icon icon" data-icon="play"></div>
+        <div class="timer-time-container">
+            <div class="timer-time"></div>
+        </div>
+        <div class="timer-reset-button card-icon icon" data-icon="reset"></div>
+    </div>
 </template>

@@ -13,3 +13,4 @@
 ### 1x
 - Leg raises
 - Pointing dogs
+- Calve raises

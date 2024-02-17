@@ -1,4 +1,4 @@
-class ElementVisibilityController {
+export class ElementVisibilityController {
   constructor(element, duration) {
     this._duration = duration;
     this._timeout = null;
@@ -28,6 +28,7 @@ class ElementVisibilityController {
         this._timeout = null;
       }, this._duration);
     } else {
+      this._element.classList.remove('visibility-animating');
       this._timeout = null;
       this._promiseDetails.resolve(true);
     }
