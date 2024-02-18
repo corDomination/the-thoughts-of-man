@@ -1,6 +1,4 @@
-import { Utility } from './utility.js';
-
-export class TimerController {
+class TimerController {
   constructor(parent) {
     this._parent = parent;
     const timerTemplate = Utility.getTemplate('timer-template');

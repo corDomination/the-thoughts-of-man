@@ -1,7 +1,3 @@
-import { ElementVisibilityController } from './js/element-visibility-controller.js';
-import { TimerController } from './js/timer-controller.js';
-import { Utility } from './js/utility.js';
-
 class IdeasMapController {
   constructor() {
     this._selectedCard = null;
@@ -143,6 +139,10 @@ class IdeasMapController {
       });
     }
   }
+
+  static adjustFilePathForHost(filePath) {
+    return location.hostname === 'localhost' || location.hostname === '127.0.0.1' ? `${filePath}` : `/the-thoughts-of-man/${filePath}`;
+  } 
 }
 
 (() => {

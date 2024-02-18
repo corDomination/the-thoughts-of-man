@@ -1,4 +1,4 @@
-export class ElementVisibilityController {
+class ElementVisibilityController {
   constructor(element, duration) {
     this._duration = duration;
     this._timeout = null;
