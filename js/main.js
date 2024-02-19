@@ -79,8 +79,8 @@ class IdeasMapController {
   async setActiveSection(name) {
     if (name === this._activeSection || this._transitioning) { return; }
     document.documentElement.dataset.section = name;
-    this._transitioning = true;
     await this.setCard(null, true);
+    this._transitioning = true;
     const lastSection = this._sections.get(this._activeSection);
 
     if (typeof lastSection !== 'undefined') {
@@ -95,9 +95,9 @@ class IdeasMapController {
   }
 
   async setCard(card, immediate = false) {
-    if (this._selectedCard === card) { return; }
+    if (this._selectedCard === card || this._transitioning) { return; }
     this._selectedCard = card;
-
+    this._transitioning = true;
     if (card !== null) {
       window.scrollTo(0, 0);
       const data = this._cardDataMap.get(card);
@@ -120,6 +120,7 @@ class IdeasMapController {
       await currentSection.visibilityController.setVisible(!exists, immediate);
       await this._contentsVisibilityController.setVisible(exists, immediate);
     }
+    this._transitioning = false;
   }
 
   onCardClick(card) {
@@ -139,10 +140,6 @@ class IdeasMapController {
       });
     }
   }
-
-  static adjustFilePathForHost(filePath) {
-    return location.hostname === 'localhost' || location.hostname === '127.0.0.1' ? `${filePath}` : `/the-thoughts-of-man/${filePath}`;
-  } 
 }
 
 (() => {

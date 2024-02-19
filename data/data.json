@@ -138,18 +138,30 @@
             "data": [
                 {
                     "title": "Full Body (15 min)",
-                    "icon": "health",
+                    "icon": "strong",
                     "url": "full-bodyweight"
                 },
                 {
                     "title": "Military Style Bodyweight w/ bar (30 min)",
-                    "icon": "health",
+                    "icon": "strong",
                     "url": "millitary-style-bodyweight-bar"
+                },
+                {
+                    "title": "Full body w/ bar (45 min)",
+                    "icon": "strong",
+                    "url": "full-bodyweight-intense"
+                },
+                {
+                    "title": "Brutal full body w/ bar (1 hr)",
+                    "icon": "strong",
+                    "url": "full-bodyweight-intense-2"
+                },
+                {
+                    "title": "Plyometric workout (30 min)",
+                    "icon": "strong",
+                    "url": "plyometric-workout"
                 }
             ]
         }
-    ],
-    "recentFiles":
-    []
-    
+    ]
 }

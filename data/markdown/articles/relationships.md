@@ -60,12 +60,12 @@ your best friend.
 - Compliment their good/virtuous traits.
 - Plan activites with them in mind.
 
+### Learning from the Struggles of Others
+If your parents modeled marriage well for you, then learn to imitate the best qualities of their marriage.
+If your parents marriage was strained, broken, or toxic, then learn from the struggles they had and improve on what they did, giving your community and possible family an image of a healthy and virtuous love.
+
 ### Embracing Sacrificial Love
 Ephesians 5:25-29: Husbands, love your wives, as Christ loved the church and gave himself up for her, that he might sanctify her.
 Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for their sake.
 
 When you are dating, this is not the standard you need to hold while dating, but rather the standard you *will* be aiming for and should prepare yourself for if/when you get married.
-
-### Learning from the Struggles of Others
-If your parents modeled marriage well for you, then learn to imitate the best qualities of their marriage.
-If your parents marriage was strained, broken, or toxic, then learn from the struggles they had and improve on what they did, giving your community and possible family an image of a healthy and virtuous love.
