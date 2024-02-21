@@ -14,7 +14,7 @@ class IdeasMapController {
     this._contentsVisibilityController = new ElementVisibilityController(this._cardSelectedDetails, this._animationDuration);
     this._transitioning = false;
     this._timerController = null;
-    this._timerController = null;
+    this._wakeLock = null;
   }
 
   async prepare() {
@@ -37,6 +37,19 @@ class IdeasMapController {
         section.appendChild(workoutsTemplate);
         this._timerController = new TimerController(this._cardSelectedDetails);
         this._timerController.prepare();
+
+        document.getElementById('toggle-switch-checkbox').addEventListener('change', () => {
+          if ('wakeLock' in navigator) {
+            if (this.checked) {
+              navigator.wakeLock.request('screen').catch(console.error);
+            } else if (this._wakeLock !== null) {
+              this._wakeLock.release().catch(console.error);
+              this._wakeLock = null;
+            }
+          } else {
+            console.log('Wake Lock API not supported');
+          }
+        });
       }
 
       const template = Utility.getTemplate('card-template');
@@ -135,6 +148,10 @@ class IdeasMapController {
   _setupHeaderLinks() {
     const headerLinks = document.querySelectorAll('.header-link');
     for (const link of headerLinks) {
+      if (link.dataset.section === 'studies') {
+        link.dataset.disabled = true;
+        return;
+      }
       link.addEventListener('click', () => {
         this.setActiveSection(link.dataset.section);
       });

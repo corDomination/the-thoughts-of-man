@@ -60,7 +60,10 @@
 <template id="home-template">
     <div class="additional-content">
         <div class="descriptive-text">Welcome, enjoy perusing my thoughts and my passions.</div>
-        <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="youtube-link" target="_blank">Torched Trailer</a>
+        <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="youtube-link glassmorphism" target="_blank">
+            <img class="torched-image" src="images/torched.png"></img>Torched Trailer
+        </a>
+        <div class="descriptive-text"></div>
     </div>
 </template>
 
@@ -68,12 +71,21 @@
     <div class="section-group" hidden></div>
 </template>
 
-<template id="timer-template">
-    <div class="timer glassmorphism">
-        <div class="timer-state-button card-icon icon" data-icon="play"></div>
-        <div class="timer-time-container">
-            <div class="timer-time"></div>
+<template id="workouts-overlay-template">
+    <div class="workouts-overlay">
+        <div class="prevent-sleep glassmorphism">
+            <div class="toggle-switch">
+                <input type="checkbox" id="toggle-switch-checkbox">
+                <label for="toggle-switch-checkbox"></label>
+            </div>
+            Prevent Sleep
         </div>
-        <div class="timer-reset-button card-icon icon" data-icon="reset"></div>
+        <div class="timer glassmorphism">
+            <div class="timer-state-button card-icon icon" data-icon="play"></div>
+            <div class="timer-time-container">
+                <div class="timer-time"></div>
+            </div>
+            <div class="timer-reset-button card-icon icon" data-icon="reset"></div>
+        </div>
     </div>
 </template>

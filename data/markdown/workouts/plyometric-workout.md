@@ -1,6 +1,6 @@
 ## Items needed: none
 
-### Warmup hard before this workout, explosive exercises pose more of an injury threat to tight muscles.
+Warmup hard before this workout, explosive exercises pose more of an injury threat to tight muscles.
 
 ### Circuit 3x - rest for 15s between exercises, 60s after 1 loop
 - 8x Squat jump vertical 

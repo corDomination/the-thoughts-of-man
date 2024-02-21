@@ -1,6 +1,8 @@
 ## Fitness
 
 One of the greatest gifts you can give to your future self and loved ones is taking care of your body, so that you can be healthy and active with them long into the future.
+Especially as a man, being physically able to serve and protect my family is also something that comes into play.
+Lastly, caring for oneself can be a gift to your spouse so they 
 
 ### Different routines for different goals 
 When training for running, I reccomend:

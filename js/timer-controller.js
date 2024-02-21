@@ -1,8 +1,8 @@
 class TimerController {
   constructor(parent) {
     this._parent = parent;
-    const timerTemplate = Utility.getTemplate('timer-template');
-    this._element = this._parent.appendChild(timerTemplate);
+    const workoutsTemplate = Utility.getTemplate('workouts-overlay-template');
+    this._element = this._parent.appendChild(workoutsTemplate);
     this._timerStateButton = this._element.querySelector('.timer-state-button');
     this._timerTimeElement = this._element.querySelector('.timer-time');
     this._timerResetButton = this._element.querySelector('.timer-reset-button');
