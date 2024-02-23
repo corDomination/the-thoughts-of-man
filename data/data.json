@@ -130,6 +130,12 @@
                     "icon": "prayer",
                     "date": "02/15/2024",
                     "url": "study-lent"
+                },
+                {
+                    "title": "Leaders and Followers",
+                    "icon": "friends",
+                    "date": "02/22/2024",
+                    "url": "leaders-and-followers"
                 }
             ]
         },

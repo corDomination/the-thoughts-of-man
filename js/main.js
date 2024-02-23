@@ -148,10 +148,10 @@ class IdeasMapController {
   _setupHeaderLinks() {
     const headerLinks = document.querySelectorAll('.header-link');
     for (const link of headerLinks) {
-      if (link.dataset.section === 'studies') {
-        link.dataset.disabled = true;
-        return;
-      }
+      // if (link.dataset.section === 'studies') {
+      //   link.dataset.disabled = true;
+      //   return;
+      // }
       link.addEventListener('click', () => {
         this.setActiveSection(link.dataset.section);
       });
