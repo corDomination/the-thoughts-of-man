@@ -19,6 +19,11 @@
                     "url": "diet"
                 },
                 {
+                    "title": "Exercise",
+                    "icon": "strong",
+                    "url": "fitness"
+                },
+                {
                     "title": "Family",
                     "icon": "family",
                     "url": "family",
