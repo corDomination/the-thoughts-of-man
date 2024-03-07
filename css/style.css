@@ -487,7 +487,10 @@ body {
     transform: translateX(21px);
 }
 
-@media screen and (max-width:440px) {
+@media screen and (min-width:440px) {
+    .card-selected-details {
+        width: 50%;
+    }
 }
 .card-contents>* {
     animation-name: slidein;
