@@ -74,7 +74,7 @@ body {
     top: 0;
     left: 0;
     opacity: 1;
-    background-image: linear-gradient(45deg, #00f2, #f002);
+    background-image: linear-gradient(60deg, #0000, #0004);
     background-size: auto auto;
     background-clip: border-box;
     background-size: 200% auto;
@@ -226,7 +226,10 @@ body {
 }
 .section-group[hidden]:not(.visibility-animating) {
     display: none;
-} 
+}
+.section-group[data-topic="home"] {
+    overflow-y: hidden;
+}
 
 .glassmorphism {
     backdrop-filter: blur(12px);
@@ -409,8 +412,21 @@ body {
     font-size: 1.25em;
     font-weight: bold;
     color: var(--quaternary-color);
-    width: 12em;
     transition: color var(--transiton-duration-medium) ease-in-out;
+}
+.descriptive-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-variant: normal;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1em;
+}
+.top-margin {
+    margin-top: 0.75em;
+}
+.descriptive-text-home-page {
+    margin-top: 0.5em;
+    line-height: 1.125em;
 }
 .torched-image {
     width: 2em;
@@ -573,4 +589,86 @@ body {
 }
 .enter-20 {
     animation-delay: 2.0s;
+}
+.enter-21 {
+    animation-delay: 2.1s;
+}
+.enter-22 {
+    animation-delay: 2.2s;
+}
+.enter-23 {
+    animation-delay: 2.3s;
+}
+.enter-24 {
+    animation-delay: 2.4s;
+}
+.enter-25 {
+    animation-delay: 2.5s;
+}
+
+.card-container {
+    perspective: 1000px;
+    margin-top: 0.75em;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.special-card {
+    position: relative;
+    width: 60vw;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+}
+.card-front, .card-back {
+    top: 0;
+    position: absolute;
+    backface-visibility: hidden;
+    left: 0;
+}
+.card-front {
+    transform: translate(-125px);
+}
+.card-back {
+    transform: rotateY(180deg) translate(125px);
+    .hero-image {
+        filter: hue-rotate(180deg);
+        transform: scaleX(-1);
+    }
+}
+.special-card.flipped {
+    transform: rotateY(180deg);
+}
+.hero-image {
+    width: 250px;
+    border-radius: 0.5em;
+    box-shadow: 0 1px 5px 2px #0005;
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    border: 16px solid var(--primary-color);
+    border-radius: 50%;
+    border-top: 16px solid var(--tertiary-color);
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

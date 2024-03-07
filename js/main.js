@@ -87,6 +87,10 @@ class IdeasMapController {
       });
     }
     this.setActiveSection('home');
+    document.querySelector('.card-container').addEventListener('click', function() {
+      this.querySelector('.special-card').classList.toggle('flipped');
+    });
+    this.showLoadingOverlay(false);
   }
 
   async setActiveSection(name) {
@@ -156,6 +160,10 @@ class IdeasMapController {
         this.setActiveSection(link.dataset.section);
       });
     }
+  }
+
+  showLoadingOverlay(value) {
+    document.getElementById('loading-overlay').style.display = value ? 'flex': 'none';
   }
 }
 

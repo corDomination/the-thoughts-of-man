@@ -7,6 +7,9 @@
 <script src="./js/main.js" type="module"></script>
 
 <body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
     <div class="body-overlay"></div>
     <div class="header">
         <a class="header-link" data-section="home">
@@ -15,7 +18,8 @@
         <a class="header-link" data-section="articles">
             <div class="icon header-icon" data-icon="thought"></div>
         </a>
-        <div class="title">The <div class="title-word"></div></div>
+        <div class="title">The <div class="title-word"></div>
+        </div>
         <a class="header-link" data-section="workouts">
             <div class="icon header-icon" data-icon="strong"></div>
         </a>
@@ -59,11 +63,27 @@
 
 <template id="home-template">
     <div class="additional-content">
-        <div class="descriptive-text">Welcome, enjoy perusing my thoughts and my passions.</div>
-        <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="youtube-link glassmorphism" target="_blank">
-            <img class="torched-image" src="images/torched.png"></img>Torched Trailer
-        </a>
-        <div class="descriptive-text"></div>
+        <div class="card-container">
+            <div class="special-card">
+                <div class="card-front">
+                    <img class="hero-image" src="images/person.png" />
+                    <div class="descriptive-text-home-page">
+                        <div class="descriptive-text top-margin"><b>"...We have done what we were obliged to do.’"</b></div>
+                        <div class="descriptive-text top-margin">To strive for excellence is the least we can do, having
+                            recieved all as a gift. Be excellent, and think nothing of it. For it is our obligation to
+                            honor the gift giver by using our gifts well.</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <img class="hero-image" src="images/person.png" />
+                    <div class="descriptive-text top-margin">You are a curious one.</div>
+                    <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="youtube-link glassmorphism"
+                        target="_blank">
+                        <img class="torched-image" src="images/torched.png"></img>Torched Trailer
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
