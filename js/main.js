@@ -26,7 +26,10 @@ class IdeasMapController {
     for (const sectionData of sections) {
       const section = Utility.getTemplate('section-group-template');
       section.dataset.topic = sectionData.name;
-
+      if (sectionData.name === 'earth') {
+        const homeTemplate = Utility.getTemplate('earth-template');
+        section.appendChild(homeTemplate);
+      }
       if (sectionData.name === 'home') {
         const homeTemplate = Utility.getTemplate('home-template');
         section.appendChild(homeTemplate);

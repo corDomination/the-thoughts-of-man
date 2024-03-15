@@ -2,6 +2,10 @@
     "sections":
     [
         {
+            "name": "earth",
+            "data": []
+        },
+        {
             "name": "home",
             "data": []
         },
