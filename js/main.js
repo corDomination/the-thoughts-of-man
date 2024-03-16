@@ -3,23 +3,30 @@ class IdeasMapController {
     this._selectedCard = null;
     this._cardDataMap = new Map();
     this._titleWord = document.querySelector('.title-word');
-    this._cardSelectedDetails = document.querySelector('.card-selected-details');
+    this._cardSelectedDetails = document.querySelector(
+      '.card-selected-details'
+    );
     this._contentsHeader = document.querySelector('.card-header');
     this._contentTitle = this._cardSelectedDetails.querySelector('.card-title');
     this._contentIcon = this._cardSelectedDetails.querySelector('.card-icon');
-    this._contentContents = this._cardSelectedDetails.querySelector('.card-contents');
+    this._contentContents =
+      this._cardSelectedDetails.querySelector('.card-contents');
     this._sections = new Map();
     this._activeSection = null;
     this._animationDuration = 250;
-    this._contentsVisibilityController = new ElementVisibilityController(this._cardSelectedDetails, this._animationDuration);
+    this._contentsVisibilityController = new ElementVisibilityController(
+      this._cardSelectedDetails,
+      this._animationDuration
+    );
     this._transitioning = false;
     this._timerController = null;
     this._wakeLock = null;
+    this._sceneController = null;
   }
 
   async prepare() {
     this._setupHeaderLinks();
-    const md = window.markdownit()
+    const md = window.markdownit();
     const json = await Utility.fetchJSON('data/data.json');
     const sections = json.sections;
     const sectionsContainer = document.querySelector('.content');
@@ -27,8 +34,11 @@ class IdeasMapController {
       const section = Utility.getTemplate('section-group-template');
       section.dataset.topic = sectionData.name;
       if (sectionData.name === 'earth') {
-        const homeTemplate = Utility.getTemplate('earth-template');
-        section.appendChild(homeTemplate);
+        const earthTemplate = Utility.getTemplate('earth-template');
+        const earthContents = section.appendChild(earthTemplate);
+        const canvas = earthContents.querySelector('.earth-canvas');
+				this._sceneController = new SceneController(canvas);
+				this._sceneController.prepare();
       }
       if (sectionData.name === 'home') {
         const homeTemplate = Utility.getTemplate('home-template');
@@ -41,23 +51,27 @@ class IdeasMapController {
         this._timerController = new TimerController(this._cardSelectedDetails);
         this._timerController.prepare();
 
-        document.getElementById('toggle-switch-checkbox').addEventListener('change', () => {
-          if ('wakeLock' in navigator) {
-            if (this.checked) {
-              navigator.wakeLock.request('screen').catch(console.error);
-            } else if (this._wakeLock !== null) {
-              this._wakeLock.release().catch(console.error);
-              this._wakeLock = null;
+        document
+          .getElementById('toggle-switch-checkbox')
+          .addEventListener('change', () => {
+            if ('wakeLock' in navigator) {
+              if (this.checked) {
+                navigator.wakeLock.request('screen').catch(console.error);
+              } else if (this._wakeLock !== null) {
+                this._wakeLock.release().catch(console.error);
+                this._wakeLock = null;
+              }
+            } else {
+              console.log('Wake Lock API not supported');
             }
-          } else {
-            console.log('Wake Lock API not supported');
-          }
-        });
+          });
       }
 
       const template = Utility.getTemplate('card-template');
       for (const entry of sectionData.data) {
-        const markdownData = await fetch(`data/markdown/${sectionData.name}/${entry.url}.md`);
+        const markdownData = await fetch(
+          `data/markdown/${sectionData.name}/${entry.url}.md`
+        );
         const unformattedDate = markdownData.headers.get('Last-Modified');
         const lastEditedDate = Utility.parseDateHeader(unformattedDate);
         const markdownText = await markdownData.text();
@@ -71,7 +85,8 @@ class IdeasMapController {
         if (typeof entry.complete !== 'undefined' && !entry.complete) {
           element.classList.add('disabled');
         }
-        date.textContent = typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
+        date.textContent =
+          typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
         const ideaContent = md.render(markdownText);
         const card = section.appendChild(element);
         this._cardDataMap.set(card, {
@@ -80,9 +95,15 @@ class IdeasMapController {
         });
         card.addEventListener('click', this.onCardClick.bind(this, card));
       }
-      this._contentsHeader.addEventListener('click', this._onCardContents.bind(this));
+      this._contentsHeader.addEventListener(
+        'click',
+        this._onCardContents.bind(this)
+      );
       const sectionElement = sectionsContainer.appendChild(section);
-      const sectionVisibilityController = new ElementVisibilityController(section, this._animationDuration);
+      const sectionVisibilityController = new ElementVisibilityController(
+        section,
+        this._animationDuration
+      );
       this._sections.set(sectionData.name, {
         name: sectionData.name,
         element: sectionElement,
@@ -90,14 +111,18 @@ class IdeasMapController {
       });
     }
     this.setActiveSection('home');
-    document.querySelector('.card-container').addEventListener('click', function() {
-      this.querySelector('.special-card').classList.toggle('flipped');
-    });
+    document
+      .querySelector('.card-container')
+      .addEventListener('click', function () {
+        this.querySelector('.special-card').classList.toggle('flipped');
+      });
     this.showLoadingOverlay(false);
   }
 
   async setActiveSection(name) {
-    if (name === this._activeSection || this._transitioning) { return; }
+    if (name === this._activeSection || this._transitioning) {
+      return;
+    }
     document.documentElement.dataset.section = name;
     await this.setCard(null, true);
     this._transitioning = true;
@@ -115,7 +140,9 @@ class IdeasMapController {
   }
 
   async setCard(card, immediate = false) {
-    if (this._selectedCard === card || this._transitioning) { return; }
+    if (this._selectedCard === card || this._transitioning) {
+      return;
+    }
     this._selectedCard = card;
     this._transitioning = true;
     if (card !== null) {
@@ -131,7 +158,9 @@ class IdeasMapController {
       }
     }
     const currentSection = this._sections.get(this._activeSection);
-    this._timerController.setVisible(currentSection.name === 'workouts' && card !== null);
+    this._timerController.setVisible(
+      currentSection.name === 'workouts' && card !== null
+    );
     const exists = card !== null;
     if (card === null) {
       await this._contentsVisibilityController.setVisible(exists, immediate);
@@ -166,7 +195,9 @@ class IdeasMapController {
   }
 
   showLoadingOverlay(value) {
-    document.getElementById('loading-overlay').style.display = value ? 'flex': 'none';
+    document.getElementById('loading-overlay').style.display = value
+      ? 'flex'
+      : 'none';
   }
 }
 

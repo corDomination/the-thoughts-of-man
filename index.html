@@ -1,10 +1,21 @@
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdn.babylonjs.com/babylon.js"></script>
+<script src="https://cdn.babylonjs.com/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+<script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+<script src="https://cdn.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+<script src="https://cdn.babylonjs.com/gui/babylon.gui.min.js"></script>
+<script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+
 <script src="./js/lib/markdown-it.min.js"></script>
 <script src="./js/utility.js"></script>
 <script src="./js/timer-controller.js"></script>
 <script src="./js/element-visibility-controller.js"></script>
+<script src="./js/scene-controller.js"></script>
 <script src="./js/main.js" type="module"></script>
+
+
 
 <body>
     <div id="loading-overlay">
@@ -12,6 +23,7 @@
     </div>
     <div class="body-overlay"></div>
     <div class="header">
+        <div class="header-title">The <div class="title-word"></div></div>
         <a class="header-link" data-section="home">
             <div class="icon header-icon" data-icon="home"></div>
         </a>
@@ -21,8 +33,6 @@
         <a class="header-link" data-section="earth">
             <div class="icon header-icon" data-icon="earth"></div>
         </a>
-        <div class="title">The <div class="title-word"></div>
-        </div>
         <a class="header-link" data-section="workouts">
             <div class="icon header-icon" data-icon="strong"></div>
         </a>
@@ -91,8 +101,8 @@
 </template>
 
 <template id="earth-template">
-    <div class="additional-content">
-       Earth
+    <div class="additional-content fullscreen">
+       <div class="canvas-container"><canvas class="earth-canvas"></canvas></div>
     </div>
 </template>
 

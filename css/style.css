@@ -26,6 +26,15 @@
         background-color: var(--quaternary-color);
     }
 }
+:root[data-section="earth"] {
+    --secondary-color: #d3a9a9;
+    --tertiary-color: #d17c7c;
+    --quaternary-color: #7e4040;
+
+    .header-link[data-section="earth"]>.header-icon {
+        background-color: var(--quaternary-color);
+    }
+}
 :root[data-section="studies"] {
     --secondary-color: #C1D6BD;
     --tertiary-color: #A1CF93;
@@ -124,7 +133,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.title {
+.header-title {
     font-size: 1.25em;
     font-weight: bold;
     height: 2em;
@@ -207,7 +216,6 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     align-content: flex-start;
-    margin-top: 0.25em;
     transition: 
         opacity var(--transiton-duration-short) ease-in-out,
         top var(--transiton-duration-short) ease-in-out;
@@ -386,6 +394,9 @@ body {
 }
 .icon[data-icon='strong'] {
     mask-image: url('../images/svg/strong.svg')
+}
+.icon[data-icon='earth'] {
+    mask-image: url('../images/svg/earth.svg')
 }
 
 .card .icon[data-icon='back-arrow'] {
@@ -674,4 +685,23 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+.canvas-container {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
+.earth-canvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    outline: none;
+}
+.fullscreen {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
