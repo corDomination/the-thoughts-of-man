@@ -28,6 +28,11 @@
                     "url": "fitness"
                 },
                 {
+                    "title": "Running",
+                    "icon": "strong",
+                    "url": "running"
+                },
+                {
                     "title": "Family",
                     "icon": "family",
                     "url": "family",
