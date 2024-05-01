@@ -19,9 +19,11 @@ class IdeasMapController {
       this._animationDuration
     );
     this._transitioning = false;
-    this._timerController = null;
+    // this._timerController = null;
     this._wakeLock = null;
     this._sceneController = null;
+    this._starController = new StarController();
+    this._cardController = new CardController();
   }
 
   async prepare() {
@@ -37,8 +39,8 @@ class IdeasMapController {
         const earthTemplate = Utility.getTemplate('earth-template');
         const earthContents = section.appendChild(earthTemplate);
         const canvas = earthContents.querySelector('.earth-canvas');
-				this._sceneController = new SceneController(canvas);
-				this._sceneController.prepare();
+        this._sceneController = new SceneController(canvas);
+        this._sceneController.prepare();
       }
       if (sectionData.name === 'home') {
         const homeTemplate = Utility.getTemplate('home-template');
@@ -48,27 +50,31 @@ class IdeasMapController {
       if (sectionData.name === 'workouts') {
         const workoutsTemplate = Utility.getTemplate('workouts-template');
         section.appendChild(workoutsTemplate);
-        this._timerController = new TimerController(this._cardSelectedDetails);
-        this._timerController.prepare();
+        // this._timerController = new TimerController(this._cardSelectedDetails);
+        // this._timerController.prepare();
 
-        document
-          .getElementById('toggle-switch-checkbox')
-          .addEventListener('change', () => {
-            if ('wakeLock' in navigator) {
-              if (this.checked) {
-                navigator.wakeLock.request('screen').catch(console.error);
-              } else if (this._wakeLock !== null) {
-                this._wakeLock.release().catch(console.error);
-                this._wakeLock = null;
-              }
-            } else {
-              console.log('Wake Lock API not supported');
-            }
-          });
+        // document
+        //   .getElementById('toggle-switch-checkbox')
+        //   .addEventListener('change', () => {
+        //     if ('wakeLock' in navigator) {
+        //       if (this.checked) {
+        //         navigator.wakeLock.request('screen').catch(console.error);
+        //       } else if (this._wakeLock !== null) {
+        //         this._wakeLock.release().catch(console.error);
+        //         this._wakeLock = null;
+        //       }
+        //     } else {
+        //       console.log('Wake Lock API not supported');
+        //     }
+        //   });
       }
 
       const template = Utility.getTemplate('card-template');
       for (const entry of sectionData.data) {
+        if (typeof entry.complete !== 'undefined' && !entry.complete) {
+          continue;
+          // element.classList.add('disabled');
+        }
         const markdownData = await fetch(
           `data/markdown/${sectionData.name}/${entry.url}.md`
         );
@@ -82,9 +88,7 @@ class IdeasMapController {
         icon.dataset.icon = entry.icon;
         title.textContent = entry.title;
         element.id = entry.title;
-        if (typeof entry.complete !== 'undefined' && !entry.complete) {
-          element.classList.add('disabled');
-        }
+        
         date.textContent =
           typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
         const ideaContent = md.render(markdownText);
@@ -111,12 +115,9 @@ class IdeasMapController {
       });
     }
     this.setActiveSection('home');
-    document
-      .querySelector('.card-container')
-      .addEventListener('click', function () {
-        this.querySelector('.special-card').classList.toggle('flipped');
-      });
     this.showLoadingOverlay(false);
+    this._starController.initiateStars();
+    this._cardController.prepare();
   }
 
   async setActiveSection(name) {
@@ -158,9 +159,9 @@ class IdeasMapController {
       }
     }
     const currentSection = this._sections.get(this._activeSection);
-    this._timerController.setVisible(
-      currentSection.name === 'workouts' && card !== null
-    );
+    // this._timerController.setVisible(
+    //   currentSection.name === 'workouts' && card !== null
+    // );
     const exists = card !== null;
     if (card === null) {
       await this._contentsVisibilityController.setVisible(exists, immediate);
@@ -184,10 +185,6 @@ class IdeasMapController {
   _setupHeaderLinks() {
     const headerLinks = document.querySelectorAll('.header-link');
     for (const link of headerLinks) {
-      // if (link.dataset.section === 'studies') {
-      //   link.dataset.disabled = true;
-      //   return;
-      // }
       link.addEventListener('click', () => {
         this.setActiveSection(link.dataset.section);
       });
@@ -195,9 +192,7 @@ class IdeasMapController {
   }
 
   showLoadingOverlay(value) {
-    document.getElementById('loading-overlay').style.display = value
-      ? 'flex'
-      : 'none';
+    document.getElementById('loading-overlay').style.display = value ? 'flex' : 'none';
   }
 }
 

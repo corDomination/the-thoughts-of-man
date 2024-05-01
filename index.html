@@ -12,6 +12,8 @@
 <script src="./js/utility.js"></script>
 <script src="./js/timer-controller.js"></script>
 <script src="./js/element-visibility-controller.js"></script>
+<script src="./js/star-controller.js"></script>
+<script src="./js/card-controller.js"></script>
 <script src="./js/scene-controller.js"></script>
 <script src="./js/main.js" type="module"></script>
 
@@ -39,7 +41,7 @@
             <div class="icon header-icon" data-icon="book"></div>
         </a>
     </div>
-    <div class="content">
+    <div class="content" id="stars">
         <div class="card-selected-details" hidden>
             <div class="card-header">
                 <div class="card-icon icon"></div>
@@ -73,24 +75,46 @@
 </template>
 
 <template id="home-template">
-    <div class="additional-content">
+    <div class="additional-content"> 
         <div class="card-container">
             <div class="special-card">
                 <div class="card-front">
                     <img class="hero-image" src="images/person.png" />
-                    <div class="descriptive-text-home-page">
-                        <div class="descriptive-text top-margin"><b>"...We have done what we were obliged to do.’"</b></div>
-                        <div class="descriptive-text top-margin">To strive for excellence is the least we can do, having
-                            recieved all as a gift. Be excellent, and think nothing of it. For it is our obligation to
-                            honor the gift giver by using our gifts well.</div>
-                    </div>
                 </div>
                 <div class="card-back">
-                    <img class="hero-image" src="images/person.png" />
-                    <div class="descriptive-text top-margin">You are a curious one.</div>
-                    <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="youtube-link glassmorphism"
-                        target="_blank">
-                        <img class="torched-image" src="images/torched.png"></img>Torched Trailer
+                    <img class="hero-image" src="images/person.png"/>
+                    <div class="descriptive-text top-margin">Hello, my name is Jack, welcome to my home on the internet. Here you can find my projects, thoughts, and musings. Enjoy!</div>
+                    <a href="https://github.com/corDomination" class="external-link">
+                        <img class="link-image" src="images/git.png"></img>
+                    </a>
+                </div>
+            </div>
+
+            <div class="special-card">
+                <div class="card-front">
+                    <img class="hero-image vertically-centered-bg" src="images/torched-card.png" />
+                </div>
+                <div class="card-back">
+                    <img class="hero-image vertically-centered-bg" src="images/torched-card.png"/>
+                    <div class="descriptive-text top-margin">My indie project, Torched, a 2D precision/puzzle platformer developed in GMS2.</div>
+                    <a href="https://www.youtube.com/watch?v=AvpXCcjz7bU" class="external-link">
+                        <img class="link-image" src="images/torched.png"></img>
+                    </a>
+                </div>
+            </div>
+
+            <div class="special-card">
+                <div class="card-front">
+                    <img class="hero-image" src="images/runner.png" />
+                </div>
+                <div class="card-back">
+                    <img class="hero-image" src="images/runner.png"/>
+                    <div class="descriptive-text top-margin">Competitively running has been a mainstay in my life. It has taught me how to struggle, how to overcome, and how to be intentional.</div>
+                    <a href="https://www.youtube.com/watch?v=tVzbYDeW1QI&t=55s" class="external-link">
+                        <img class="link-image" src="images/nirca.png"></img>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=cORgWLNxFv8&t=250s" class="external-link">
+                        <img class="link-image" src="images/madeira-mile.png"></img>
                     </a>
                 </div>
             </div>
@@ -110,7 +134,7 @@
 
 <template id="workouts-overlay-template">
     <div class="workouts-overlay">
-        <div class="prevent-sleep glassmorphism">
+        <!-- <div class="prevent-sleep glassmorphism">
             <div class="toggle-switch">
                 <input type="checkbox" id="toggle-switch-checkbox">
                 <label for="toggle-switch-checkbox"></label>
@@ -123,6 +147,6 @@
                 <div class="timer-time"></div>
             </div>
             <div class="timer-reset-button card-icon icon" data-icon="reset"></div>
-        </div>
+        </div> -->
     </div>
 </template>
