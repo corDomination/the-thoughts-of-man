@@ -71,10 +71,11 @@ html {
 body {
     height: 100%;
     margin: 0;
-    font-family: sans-serif;
+    font-family: Futura;
     font-variant: small-caps;
     display: flex;
     flex-direction: column;
+    font-family: Futura, Trebuchet MS, sans-serif; 
 }
 .body-overlay {
     pointer-events: none;
@@ -354,52 +355,68 @@ body {
     mask-size: cover;
 }
 .icon[data-icon='health'] {
-    mask-image: url('../images/svg/health.svg')
+    mask-image: url('../images/svg/health.svg');
+    -webkit-mask-image: url('../images/svg/health.svg');
 }
 .icon[data-icon='family'] {
-    mask-image: url('../images/svg/family.svg')
+    mask-image: url('../images/svg/family.svg');
+    -webkit-mask-image: url('../images/svg/family.svg');
 }
 .icon[data-icon='friends'] {
-    mask-image: url('../images/svg/friends.svg')
+    mask-image: url('../images/svg/friends.svg');
+    -webkit-mask-image: url('../images/svg/friends.svg');
 }
 .icon[data-icon='relationship'] {
-    mask-image: url('../images/svg/relationship.svg')
+    mask-image: url('../images/svg/relationship.svg');
+    -webkit-mask-image: url('../images/svg/relationship.svg');
 }
 .icon[data-icon='hamburger'] {
-    mask-image: url('../images/svg/hamburger.svg')
+    mask-image: url('../images/svg/hamburger.svg');
+    -webkit-mask-image: url('../images/svg/hamburger.svg');
 }
 .icon[data-icon='back-arrow'] {
-    mask-image: url('../images/svg/back-arrow.svg')
+    mask-image: url('../images/svg/back-arrow.svg');
+    -webkit-mask-image: url('../images/svg/back-arrow.svg');
 }
 .icon[data-icon='home'] {
-    mask-image: url('../images/svg/home.svg')
+    mask-image: url('../images/svg/home.svg');
+    -webkit-mask-image: url('../images/svg/home.svg');
 }
 .icon[data-icon='book'] {
-    mask-image: url('../images/svg/book.svg')
+    mask-image: url('../images/svg/book.svg');
+    -webkit-mask-image: url('../images/svg/book.svg');
 }
 .icon[data-icon='thinking'] {
-    mask-image: url('../images/svg/thinking.svg')
+    mask-image: url('../images/svg/thinking.svg');
+    -webkit-mask-image: url('../images/svg/thinking.svg');
 }
 .icon[data-icon='thought'] {
-    mask-image: url('../images/svg/thought.svg')
+    mask-image: url('../images/svg/thought.svg');
+    -webkit-mask-image: url('../images/svg/thought.svg');
 }
 .icon[data-icon='prayer'] {
-    mask-image: url('../images/svg/prayer.svg')
+    mask-image: url('../images/svg/prayer.svg');
+    -webkit-mask-image: url('../images/svg/prayer.svg');
 }
 .icon[data-icon='play'] {
-    mask-image: url('../images/svg/play.svg')
+    mask-image: url('../images/svg/play.svg');
+    -webkit-mask-image: url('../images/svg/play.svg');
 }
 .icon[data-icon='pause'] {
-    mask-image: url('../images/svg/pause.svg')
+    mask-image: url('../images/svg/pause.svg');
+    -webkit-mask-image: url('../images/svg/pause.svg');
 }
 .icon[data-icon='reset'] {
-    mask-image: url('../images/svg/reset.svg')
+    mask-image: url('../images/svg/reset.svg');
+    -webkit-mask-image: url('../images/svg/reset.svg');
 }
 .icon[data-icon='strong'] {
-    mask-image: url('../images/svg/strong.svg')
+    mask-image: url('../images/svg/strong.svg');
+    -webkit-mask-image: url('../images/svg/strong.svg');
 }
 .icon[data-icon='earth'] {
-    mask-image: url('../images/svg/earth.svg')
+    mask-image: url('../images/svg/earth.svg');
+    -webkit-mask-image: url('../images/svg/earth.svg');
 }
 
 .card .icon[data-icon='back-arrow'] {
