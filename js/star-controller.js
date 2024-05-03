@@ -35,6 +35,6 @@ class StarController {
   }
 
   moveStars(x) {
-    this._stars.style.transform = `translate(${(x+2) * 12.5}vw, -25vh) rotateY(${(x + 2) * -5}deg)`;
+    this._stars.style.transform = `translate(${(x+2) * 70}px, -25vh) rotateY(${(x + 2) * -10}deg)`;
   }
 }

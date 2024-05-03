@@ -28,6 +28,7 @@ class IdeasMapController {
   }
 
   async prepare() {
+    this._starController.moveStars(0);
     this._setupHeaderLinks();
     const md = window.markdownit();
     const json = await Utility.fetchJSON('data/data.json');
@@ -41,7 +42,6 @@ class IdeasMapController {
         const earthContents = section.appendChild(earthTemplate);
         const canvas = document.querySelector('.earth-canvas');
         this._sceneController = new SceneController(canvas);
-        this._sceneController.prepare();
       }
       if (sectionData.name === 'home') {
         const homeTemplate = Utility.getTemplate('home-template');
@@ -117,7 +117,6 @@ class IdeasMapController {
       this._sectionNumber++;
     }
     this.showLoadingOverlay(false);
-    this._starController.moveStars(0);
     this._starController.initiateStars();
     await new Promise((r) => setTimeout(r, 500));
     this.setActiveSection('home');
@@ -139,7 +138,12 @@ class IdeasMapController {
       await lastSection.visibilityController.setVisible(false);
     }
     this._titleWord.textContent = updatedSection.name;
-    this._sceneController.canvas.hidden = updatedSection.name !== 'earth'
+
+    const isEarth = updatedSection.name === 'earth';
+    this._sceneController.canvas.hidden = !isEarth;
+    if (isEarth) {
+      this._sceneController.prepare();
+    }
     await updatedSection.visibilityController.setVisible(true);
     this._activeSection = name;
     this._transitioning = false;

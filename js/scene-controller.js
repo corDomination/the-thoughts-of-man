@@ -5,7 +5,6 @@ class SceneController {
     this._canvas = canvas;
     this._camera = null;
     this._sunlight = null;
-    this._moonlight = null;
     this._pillarlight = null;
     this._objects = [];
     this._frame = 0;
@@ -15,6 +14,7 @@ class SceneController {
   get canvas() { return this._canvas; }
 
   async prepare() {
+    if (this._engine !== null) { return; }
     this._engine = await new BABYLON.Engine(this._canvas, true, {
       preserveDrawingBuffer: true,
       stencil: true,
@@ -30,7 +30,7 @@ class SceneController {
       blurKernelSize: 64
     });
     this._startRenderLoop();
-    // this._scene.debugLayer.show();
+    this._scene.debugLayer.show();
   }
 
   _createScene() {
@@ -46,11 +46,6 @@ class SceneController {
     light.diffuse = new BABYLON.Color3.FromHexString('#fcba03');
     this._sunlight = light;
 
-    const light2 = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
-    light2.intensity = 700000;
-    light2.diffuse = new BABYLON.Color3.FromHexString('#00ff22');
-    this._moonlight = light2;
-
     const light3 = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
     light3.intensity = 0;
     light3.diffuse = new BABYLON.Color3.FromHexString('#0000ff');
@@ -59,26 +54,62 @@ class SceneController {
   }
 
   async _addModels() {
-    const earthMeshes = await this._importMesh('earth.glb', new BABYLON.Vector3(0, 0, 2000), new BABYLON.Vector3(1, 1, 1), new BABYLON.Vector3(0, 2, 0.2));
-    const moonMeshes = await this._importMesh('moon.glb', new BABYLON.Vector3(500, 0, 1200), new BABYLON.Vector3(0.1, 0.1, 0.1));
-    const lightMoonMeshes = await this._importMesh('moon.glb', new BABYLON.Vector3(500, 0, -1200), new BABYLON.Vector3(0.1, 0.1, 0.1));
+    const earthMeshes = await this._importMesh(
+      'earth.glb',
+      new BABYLON.Vector3(0, 0, 2000),
+      new BABYLON.Vector3(1, 1, 1),
+      new BABYLON.Vector3(0, 2, 0.2),
+      true
+    );
+    const moonMeshes = await this._importMesh(
+      'moon.glb',
+      new BABYLON.Vector3(500, 0, 1200),
+      new BABYLON.Vector3(0.1, 0.1, 0.1),
+      new BABYLON.Vector3(0, 0, 0),
+      true
+    );
+    const lightMoonMeshes = await this._importMesh(
+      'moon.glb',
+      new BABYLON.Vector3(500, 0, -1200),
+      new BABYLON.Vector3(0.1, 0.1, 0.1),
+      new BABYLON.Vector3(0, 0, 0),
+      true
+    );
+    const sunMeshes = await this._importMesh(
+      'sun.glb',
+      new BABYLON.Vector3(4000, 0, -4000)
+    );
     moonMeshes[0].parent = earthMeshes[0];
-    const sunMeshes = await this._importMesh('sun.glb', new BABYLON.Vector3(4000, 0, -4000));
     lightMoonMeshes[0].parent = earthMeshes[0];
-    this._moonlight.parent = lightMoonMeshes[0];
-    lightMoonMeshes[1].material.emissiveColor = BABYLON.Color3.FromHexString('#009E22');
     this._sunlight.parent = sunMeshes[0];
     sunMeshes[1].material.emissiveColor = BABYLON.Color3.FromHexString('#FF9E47');
     const box = BABYLON.MeshBuilder.CreateBox('box', {});
-    box.scaling = new BABYLON.Vector3(10, 10, 250);
-    box.parent = earthMeshes[0];
-    box.position = new BABYLON.Vector3(0, 0, 520.000);
+    box.scaling = new BABYLON.Vector3(50, 50, 1000);
+    box.parent = moonMeshes[0];
+    box.position = new BABYLON.Vector3(0, 0, -500);
     const material = new BABYLON.StandardMaterial('pillar-material');
     material.emissiveColor = BABYLON.Color3.FromHexString('#0055ff');
     box.material = material;
     this._pillarlight.parent = box;
     this._objects = [earthMeshes[0], moonMeshes[0], sunMeshes[0]];
     this._pillar = box;
+
+    this._createShadows([moonMeshes[1], lightMoonMeshes[1], box])
+  }
+
+  _createShadows(meshes) {
+    // Shadows
+    const shadowGenerator = new BABYLON.ShadowGenerator(1024, this._sunlight);
+    shadowGenerator.getShadowMap().renderList.push(...meshes);
+    shadowGenerator.useBlurExponentialShadowMap = true;
+    shadowGenerator.useKernelBlur = true;
+    shadowGenerator.blurKernel = 64;
+
+    const shadowGenerator2 = new BABYLON.ShadowGenerator(1024, this._pillarlight);
+    shadowGenerator.getShadowMap().renderList.push(...meshes);
+    shadowGenerator.useBlurExponentialShadowMap = true;
+    shadowGenerator.useKernelBlur = true;
+    shadowGenerator.blurKernel = 64;
   }
 
   _startRenderLoop() {
@@ -93,12 +124,12 @@ class SceneController {
       }
       if (this._pillarlight === null || this._pillar === null) { return; }
       const rate = (Math.cos(this._frame * 0.01) + 1) * 0.5;
-      this._pillarlight.intensity = Math.pow(rate * 1000, 2);
+      this._pillarlight.intensity = Math.pow(rate * 5000, 2);
       this._pillar.material.alpha = rate;
     });
   }
 
-  async _importMesh(filename, position = new BABYLON.Vector3(0, 0, 0), scaling = new BABYLON.Vector3(1, 1, 1), rotation = new BABYLON.Vector3(0, 0, 0)) {
+  async _importMesh(filename, position = new BABYLON.Vector3(0, 0, 0), scaling = new BABYLON.Vector3(1, 1, 1), rotation = new BABYLON.Vector3(0, 0, 0), receiveShadows = false) {
     const result = await BABYLON.SceneLoader.ImportMeshAsync('', 'models/', filename, this._scene);
     const { meshes } = result;
     meshes[0].name = `${meshes[1].name}_root`;
@@ -106,6 +137,9 @@ class SceneController {
     meshes[0].scaling = scaling;
     meshes[0].rotationQuaternion = null;
     meshes[0].rotation = rotation;
+    for (const mesh of meshes) {
+      mesh.receiveShadows = receiveShadows;
+    }
     return meshes;
   }
 }
