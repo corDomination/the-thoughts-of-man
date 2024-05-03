@@ -27,12 +27,17 @@
     }
 }
 :root[data-section="earth"] {
-    --secondary-color: #d3a9a9;
-    --tertiary-color: #d17c7c;
-    --quaternary-color: #7e4040;
+    --secondary-color: #d2d3a9;
+    --tertiary-color: #d0d17c;
+    --quaternary-color: #7e7d40;
 
     .header-link[data-section="earth"]>.header-icon {
         background-color: var(--quaternary-color);
+    }
+
+    .star {
+        width: 8px;
+        height: 8px;
     }
 }
 :root[data-section="studies"] {
@@ -117,7 +122,8 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    padding-top: 1em;
+    pointer-events: none;
+    perspective: 1000px;
 }
 .header {
     width: 100%;
@@ -140,7 +146,7 @@ body {
     align-items: center;
 }
 .header-title {
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: bold;
     height: 2em;
     padding: 0.25em 0;
@@ -230,6 +236,7 @@ body {
     overflow-y: auto;
     top: 0;
     position: relative;
+    pointer-events: none;
 }
 .section-group.visibility-animating {
     pointer-events: none;
@@ -653,6 +660,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    pointer-events: all;
 }
 .special-card {
     position: relative;
@@ -751,12 +759,16 @@ body {
     width: 100%;
     height: 100%;
     outline: none;
+    pointer-events: none;
+    position: absolute;
 }
 .earth-canvas {
     width: 100%;
     height: 100%;
     touch-action: none;
     outline: none;
+    background-color: transparent;
+    pointer-events: all;
 }
 .fullscreen {
     overflow: hidden;
@@ -769,6 +781,13 @@ body {
 /* Stars */
 #stars {
     background-color: #000;
+    position: absolute;
+    z-index: -2;
+    width: 200%;
+    height: 200%;
+    transform: translateX(0);
+    transition: transform 0.5s ease-out;
+    transform-origin: center;
 }
 
 .star {
@@ -779,6 +798,7 @@ body {
     background-color: var(--tertiary-color);
     pointer-events: none;
     z-index: -1;
+    transition: all 0.25s ease-out;
 }
 
   @media screen and (max-width:440px) {
@@ -787,4 +807,10 @@ body {
         font-size: 0.75em;
         width: 13.25em;
     }
+}
+
+/* BABYLON DEBUG */
+#scene-explorer-host, #inspector-host {
+    z-index: 999;
+    pointer-events: all;
 }

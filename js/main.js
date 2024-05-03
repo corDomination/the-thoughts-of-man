@@ -24,6 +24,7 @@ class IdeasMapController {
     this._sceneController = null;
     this._starController = new StarController();
     this._cardController = new CardController();
+    this._sectionNumber = 0;
   }
 
   async prepare() {
@@ -88,14 +89,13 @@ class IdeasMapController {
         icon.dataset.icon = entry.icon;
         title.textContent = entry.title;
         element.id = entry.title;
-        
         date.textContent =
           typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
         const ideaContent = md.render(markdownText);
         const card = section.appendChild(element);
         this._cardDataMap.set(card, {
           ideaContent,
-          entry
+          entry,
         });
         card.addEventListener('click', this.onCardClick.bind(this, card));
       }
@@ -111,12 +111,16 @@ class IdeasMapController {
       this._sections.set(sectionData.name, {
         name: sectionData.name,
         element: sectionElement,
-        visibilityController: sectionVisibilityController
+        visibilityController: sectionVisibilityController,
+        x: this._sectionNumber
       });
+      this._sectionNumber++;
     }
-    this.setActiveSection('home');
     this.showLoadingOverlay(false);
+    this._starController.moveStars(0);
     this._starController.initiateStars();
+    await new Promise((r) => setTimeout(r, 500));
+    this.setActiveSection('home');
     this._cardController.prepare();
   }
 
@@ -129,11 +133,13 @@ class IdeasMapController {
     this._transitioning = true;
     const lastSection = this._sections.get(this._activeSection);
 
+    const updatedSection = this._sections.get(name);
+    this._starController.moveStars(-updatedSection.x);
     if (typeof lastSection !== 'undefined') {
       await lastSection.visibilityController.setVisible(false);
     }
-    const updatedSection = this._sections.get(name);
     this._titleWord.textContent = updatedSection.name;
+    this._sceneController.canvas.hidden = updatedSection.name !== 'earth'
     await updatedSection.visibilityController.setVisible(true);
     this._activeSection = name;
     this._transitioning = false;

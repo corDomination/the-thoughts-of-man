@@ -3,6 +3,7 @@
 
 <script src="./js/lib/babylon.js"></script>
 <script src="./js/lib/loaders.js"></script>
+<script src="https://cdn.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
 <script src="./js/lib/markdown-it.min.js"></script>
 <script src="./js/utility.js"></script>
 <script src="./js/timer-controller.js"></script>
@@ -36,8 +37,9 @@
             <div class="icon header-icon" data-icon="book"></div>
         </a>
     </div>
-    <div class="content" id="stars">
-        <div class="canvas-container"><canvas class="earth-canvas"></canvas></div>
+    <div class="content">
+        <div id="stars"></div>
+        <div class="canvas-container"><canvas hidden class="earth-canvas"></canvas></div>
         <div class="card-selected-details" hidden>
             <div class="card-header">
                 <div class="card-icon icon"></div>
@@ -131,7 +133,6 @@
 
 <template id="earth-template">
     <div class="additional-content fullscreen">
-       <!-- <div class="canvas-container"><canvas class="earth-canvas"></canvas></div> -->
     </div>
 </template>
 
