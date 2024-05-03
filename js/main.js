@@ -38,7 +38,7 @@ class IdeasMapController {
       if (sectionData.name === 'earth') {
         const earthTemplate = Utility.getTemplate('earth-template');
         const earthContents = section.appendChild(earthTemplate);
-        const canvas = earthContents.querySelector('.earth-canvas');
+        const canvas = document.querySelector('.earth-canvas');
         this._sceneController = new SceneController(canvas);
         this._sceneController.prepare();
       }
