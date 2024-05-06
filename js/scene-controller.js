@@ -30,7 +30,7 @@ class SceneController {
       blurKernelSize: 64
     });
     this._startRenderLoop();
-    this._scene.debugLayer.show();
+    // this._scene.debugLayer.show();
   }
 
   _createScene() {

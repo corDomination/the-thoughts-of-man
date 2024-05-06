@@ -2,10 +2,6 @@
     "sections":
     [
         {
-            "name": "home",
-            "data": []
-        },
-        {
             "name": "articles",
             "data": [
                 {
@@ -71,34 +67,8 @@
             "data": []
         },
         {
-            "name": "workouts",
-            "data": [
-                {
-                    "title": "Full Body (15 min)",
-                    "icon": "strong",
-                    "url": "full-bodyweight"
-                },
-                {
-                    "title": "Military Style Bodyweight w/ bar (30 min)",
-                    "icon": "strong",
-                    "url": "millitary-style-bodyweight-bar"
-                },
-                {
-                    "title": "Full body w/ bar (45 min)",
-                    "icon": "strong",
-                    "url": "full-bodyweight-intense"
-                },
-                {
-                    "title": "Brutal full body w/ bar (1 hr)",
-                    "icon": "strong",
-                    "url": "full-bodyweight-intense-2"
-                },
-                {
-                    "title": "Plyometric workout (30 min)",
-                    "icon": "strong",
-                    "url": "plyometric-workout"
-                }
-            ]
+            "name": "home",
+            "data": []
         },
         {
             "name": "studies",
@@ -192,6 +162,36 @@
                     "icon": "reset",
                     "date": "03/07/2024",
                     "url": "study-solitude-and-silence"
+                }
+            ]
+        },
+        {
+            "name": "workouts",
+            "data": [
+                {
+                    "title": "Full Body (15 min)",
+                    "icon": "strong",
+                    "url": "full-bodyweight"
+                },
+                {
+                    "title": "Military Style Bodyweight w/ bar (30 min)",
+                    "icon": "strong",
+                    "url": "millitary-style-bodyweight-bar"
+                },
+                {
+                    "title": "Full body w/ bar (45 min)",
+                    "icon": "strong",
+                    "url": "full-bodyweight-intense"
+                },
+                {
+                    "title": "Brutal full body w/ bar (1 hr)",
+                    "icon": "strong",
+                    "url": "full-bodyweight-intense-2"
+                },
+                {
+                    "title": "Plyometric workout (30 min)",
+                    "icon": "strong",
+                    "url": "plyometric-workout"
                 }
             ]
         }

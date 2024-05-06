@@ -2,7 +2,7 @@ class IdeasMapController {
   constructor() {
     this._selectedCard = null;
     this._cardDataMap = new Map();
-    this._titleWord = document.querySelector('.title-word');
+
     this._cardSelectedDetails = document.querySelector(
       '.card-selected-details'
     );
@@ -137,7 +137,6 @@ class IdeasMapController {
     if (typeof lastSection !== 'undefined') {
       await lastSection.visibilityController.setVisible(false);
     }
-    this._titleWord.textContent = updatedSection.name;
 
     const isEarth = updatedSection.name === 'earth';
     this._sceneController.canvas.hidden = !isEarth;
