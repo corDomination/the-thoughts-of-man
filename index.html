@@ -14,10 +14,15 @@
 <script src="./js/main.js" type="module"></script>
 
 <body>
-    <div id="loading-overlay">
-        <div class="loader"></div>
+    <div class="three-dimension-mimicker">
+        <div class="background"></div>
+        <div id="stars"></div>
+        <div class="foreground"></div>
+        <div id="loading-overlay">
+            <div class="loader"></div>
+        </div>
     </div>
-    <div class="body-overlay"></div>
+    <div class="body-overlay"></div> 
     <div class="header">
         <div class="header-link-container">
             <a class="header-link" data-section="articles">Learn</a>
@@ -28,7 +33,6 @@
         </div>
     </div>
     <div class="content">
-        <div id="stars"></div>
         <div class="canvas-container"><canvas hidden class="earth-canvas"></canvas></div>
         <div class="card-selected-details" hidden>
             <div class="card-header">
@@ -122,8 +126,7 @@
 </template>
 
 <template id="earth-template">
-    <div class="additional-content fullscreen">
-    </div>
+    <div class="additional-content fullscreen">3D content disabled</div>
 </template>
 
 <template id="section-group-template">
@@ -132,19 +135,5 @@
 
 <template id="workouts-overlay-template">
     <div class="workouts-overlay">
-        <!-- <div class="prevent-sleep glassmorphism">
-            <div class="toggle-switch">
-                <input type="checkbox" id="toggle-switch-checkbox">
-                <label for="toggle-switch-checkbox"></label>
-            </div>
-            Prevent Sleep
-        </div>
-        <div class="timer glassmorphism">
-            <div class="timer-state-button card-icon icon" data-icon="play"></div>
-            <div class="timer-time-container">
-                <div class="timer-time"></div>
-            </div>
-            <div class="timer-reset-button card-icon icon" data-icon="reset"></div>
-        </div> -->
     </div>
 </template>

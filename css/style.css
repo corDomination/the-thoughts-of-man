@@ -27,8 +27,8 @@
     --quaternary-color: #75407E;
 
     .header-link[data-section="articles"] {
-        color: var(--quaternary-color);
-        border: 1px solid var(--quaternary-color);
+        color: var(--tertiary-color);
+        border: 1px solid var(--tertiary-color);
     }
 }
 :root[data-section="earth"] {
@@ -37,8 +37,8 @@
     --quaternary-color: #7e7d40;
 
     .header-link[data-section="earth"] {
-        color: var(--quaternary-color);
-        border: 1px solid var(--quaternary-color);
+        color: var(--tertiary-color);
+        border: 1px solid var(--tertiary-color);
     }
 
     .star {
@@ -52,8 +52,8 @@
     --quaternary-color: #497E40;
 
     .header-link[data-section="studies"] {
-        color: var(--quaternary-color);
-        border: 1px solid var(--quaternary-color);
+        color: var(--tertiary-color);
+        border: 1px solid var(--tertiary-color);
     }
 }
 :root[data-section="workouts"] {
@@ -62,8 +62,8 @@
     --quaternary-color: #7E5640;
 
     .header-link[data-section="workouts"] {
-        color: var(--quaternary-color);
-        border: 1px solid var(--quaternary-color);
+        color: var(--tertiary-color);
+        border: 1px solid var(--tertiary-color);
     }
 }
 html {
@@ -88,7 +88,6 @@ body {
     font-variant: small-caps;
     display: flex;
     flex-direction: column;
-    background-color: #000;
     font-family: Futura, Trebuchet MS, sans-serif; 
 }
 .body-overlay {
@@ -151,6 +150,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #fff;
 }
 .header-link-container {
     border: 1px solid #fff2;
@@ -247,8 +247,8 @@ body {
     flex-direction: row;
     align-content: flex-start;
     transition: 
-        opacity var(--transiton-duration-short) ease-in-out,
-        top var(--transiton-duration-short) ease-in-out;
+        opacity var(--transiton-duration-short) ease-out,
+        top var(--transiton-duration-short) ease-out;
     opacity: 1;
     overflow-y: auto;
     top: 0;
@@ -802,13 +802,62 @@ body {
     padding: 0;
 }
 
+@media screen and (max-width:440px) {
+    .special-card {
+        height: 17em;
+        font-size: 0.75em;
+        width: 44%;
+    }
+    .header-link {
+        font-size: 0.75em;
+        padding: 0;
+        width: 3.75em;
+        margin: 0;
+        border: solid 1px #000;
+    }
+    .header-link-container {
+        padding: 0.25em 0.125em;
+        margin: 0.5em 0;
+    }
+}
+
+/* BABYLON DEBUG */
+#scene-explorer-host, #inspector-host {
+    z-index: 999;
+    pointer-events: all;
+}
+
+.three-dimension-mimicker {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-10%, -10%);
+}
+.background, .foreground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transition: all var(--transiton-duration-medium) ease-out;
+}
+.background {
+    background: url(../images/background.png);
+    z-index: -2;
+}
+.foreground {
+    background: url(../images/foreground.png);
+    z-index: 0;
+}
 /* Stars */
 #stars {
-    background-color: #000;
+    z-index: -1;
     position: absolute;
-    z-index: -2;
-    width: max(200%, 1000px);
-    height: max(200%, 1000px);
+    width: 100%;
+    height: 100%;
     transform: translateX(0);
     transition: transform 0.5s ease-out;
     transform-origin: center;
@@ -821,31 +870,5 @@ body {
     border-radius: 50%;
     background-color: var(--tertiary-color);
     pointer-events: none;
-    z-index: -1;
     transition: all 0.25s ease-out;
-}
-
-  @media screen and (max-width:440px) {
-    .special-card {
-        height: 17em;
-        font-size: 0.75em;
-        width: 44%;
-    }
-    .header-link {
-        font-size: 0.75em;
-        padding: 0;
-        width: 3.75em;
-        margin: 0;
-        border: none;
-    }
-    .header-link-container {
-        padding: 0.25em 0.125em;
-        margin: 0.5em 0;
-    }
-}
-
-/* BABYLON DEBUG */
-#scene-explorer-host, #inspector-host {
-    z-index: 999;
-    pointer-events: all;
 }

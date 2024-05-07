@@ -14,22 +14,22 @@ class SceneController {
   get canvas() { return this._canvas; }
 
   async prepare() {
-    if (this._engine !== null) { return; }
-    this._engine = await new BABYLON.Engine(this._canvas, true, {
-      preserveDrawingBuffer: true,
-      stencil: true,
-      disableWebGL2Support: false
-    });
-    window.addEventListener('resize', () => {
-      this._engine.resize();
-    });
-    this._scene = this._createScene();
-    this._addModels();
-    const gl = new BABYLON.GlowLayer('glow', this._scene, {
-      mainTextureFixedSize: 256,
-      blurKernelSize: 64
-    });
-    this._startRenderLoop();
+    // if (this._engine !== null) { return; }
+    // this._engine = await new BABYLON.Engine(this._canvas, true, {
+    //   preserveDrawingBuffer: true,
+    //   stencil: true,
+    //   disableWebGL2Support: false
+    // });
+    // window.addEventListener('resize', () => {
+    //   this._engine.resize();
+    // });
+    // this._scene = this._createScene();
+    // this._addModels();
+    // const gl = new BABYLON.GlowLayer('glow', this._scene, {
+    //   mainTextureFixedSize: 256,
+    //   blurKernelSize: 64
+    // });
+    // this._startRenderLoop();
     // this._scene.debugLayer.show();
   }
 

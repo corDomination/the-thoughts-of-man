@@ -24,7 +24,7 @@ class IdeasMapController {
     this._sceneController = null;
     this._starController = new StarController();
     this._cardController = new CardController();
-    this._sectionNumber = 0;
+    this._sectionNumber = -2;
   }
 
   async prepare() {
