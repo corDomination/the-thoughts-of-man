@@ -116,7 +116,7 @@ class IdeasMapController {
       });
       this._sectionNumber++;
     }
-    this.showLoadingOverlay(false);
+    // this.showLoadingOverlay(false);
     this._starController.initiateStars();
     await new Promise((r) => setTimeout(r, 500));
     this.setActiveSection('home');
@@ -200,9 +200,9 @@ class IdeasMapController {
     }
   }
 
-  showLoadingOverlay(value) {
-    document.getElementById('loading-overlay').style.display = value ? 'flex' : 'none';
-  }
+  // showLoadingOverlay(value) {
+  //   document.getElementById('loading-overlay').style.display = value ? 'flex' : 'none';
+  // }
 }
 
 (() => {
