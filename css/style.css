@@ -16,7 +16,7 @@
 
     .header-link[data-section="home"] {
         color: #fff;
-        border: 1px solid #fff;
+        border-color: #fff;
         background-color: #fff;
         color: #000;
     }
@@ -28,7 +28,7 @@
 
     .header-link[data-section="articles"] {
         color: var(--tertiary-color);
-        border: 1px solid var(--tertiary-color);
+        border-color: var(--tertiary-color);
     }
 }
 :root[data-section="earth"] {
@@ -38,7 +38,7 @@
 
     .header-link[data-section="earth"] {
         color: var(--tertiary-color);
-        border: 1px solid var(--tertiary-color);
+        border-color: var(--tertiary-color);
     }
 
     .star {
@@ -53,7 +53,7 @@
 
     .header-link[data-section="studies"] {
         color: var(--tertiary-color);
-        border: 1px solid var(--tertiary-color);
+        border-color: var(--tertiary-color);
     }
 }
 :root[data-section="workouts"] {
@@ -63,7 +63,7 @@
 
     .header-link[data-section="workouts"] {
         color: var(--tertiary-color);
-        border: 1px solid var(--tertiary-color);
+        border-color: var(--tertiary-color);
     }
 }
 html {
@@ -154,7 +154,7 @@ body {
 }
 .header-link-container {
     border: 1px solid #fff2;
-    margin: 1em;
+    margin: 0.5em 0 0 0;
     padding: 0.25em;
     display: flex;
     border-radius: 1.2em;
@@ -174,7 +174,7 @@ body {
     width: 5em;
     border-width: 1px;
     border-style: solid;
-    border-color: #000;
+    border-color: transparent;
     user-select: none;
     cursor: pointer;
     transition: all var(--transiton-duration-short) ease-out;
@@ -212,7 +212,7 @@ body {
 .card-selected-details {
     overflow-y: hidden;
     margin: 1.25%;
-    width: 95%;
+    width: 55%;
     padding: 1.25%;
     display: flex;
     flex-direction: column;
@@ -220,6 +220,7 @@ body {
     transition: opacity var(--transiton-duration-short) ease-in-out;
     background: var(--secondary-color);
     pointer-events: all;
+    border-radius: 0.5em;
 
     .card-header {
         padding-bottom: 0.5em;
@@ -246,9 +247,7 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     align-content: flex-start;
-    transition: 
-        opacity var(--transiton-duration-short) ease-out,
-        top var(--transiton-duration-short) ease-out;
+    transition: opacity var(--transiton-duration-short) ease-out;
     opacity: 1;
     overflow-y: auto;
     top: 0;
@@ -261,7 +260,6 @@ body {
 .section-group[hidden] {
     pointer-events: none;
     opacity: 0;
-    top: -10em;
 }
 .section-group[hidden]:not(.visibility-animating) {
     display: none;
@@ -483,22 +481,21 @@ body {
     box-shadow: 0 0 4px 2px #fff;
 }
 .descriptive-text {
-    font-family: monospace;
-    font-variant: normal;
-    font-size: 1.5em;
+    font-size: 1.25em;
     line-height: 1em;
     color: #fff;
     border-radius: 0.125em;
-    width: 95%;
-    margin: 2.5%;
+    margin: 0.75em 0 0 0;
     pointer-events: none;
     user-select: none;
 }
+
 .top-margin {
     margin-top: 0.75em;
 }
-.descriptive-text-home-page {
-    margin-top: 0.5em;
+.descriptive-text-header {
+    width: 90%;
+    text-align: center;
     line-height: 1.125em;
 }
 .link-image {
@@ -677,7 +674,7 @@ body {
 
 .card-container {
     perspective: 1000px;
-    margin-top: 0.75em;
+    margin-top: 0.5em;
     margin-bottom: 1em;
     display: flex;
     flex-direction: row;
@@ -817,7 +814,12 @@ body {
     }
     .header-link-container {
         padding: 0.25em 0.125em;
-        margin: 0.5em 0;
+        margin: 0.5em 0 0 0.5;
+    }
+    .card-selected-details {
+        width: 90%;
+        margin: 2.5%;
+        padding: 2.5%;
     }
 }
 
@@ -833,7 +835,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(-10%, -10%);
+    transform: translate(-10%, -10%) scale(1.2, 1);
 }
 .background, .foreground {
     position: absolute;
@@ -845,11 +847,12 @@ body {
     transition: all var(--transiton-duration-medium) ease-out;
 }
 .background {
-    background: url(../images/background.png);
+    background: #000;
+    /* background: url(../images/background.png); */
     z-index: -2;
 }
 .foreground {
-    background: url(../images/foreground.png);
+    /* background: url(../images/foreground.png); */
     z-index: 0;
 }
 /* Stars */
@@ -865,10 +868,11 @@ body {
 
 .star {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: var(--tertiary-color);
     pointer-events: none;
     transition: all 0.25s ease-out;
+    box-shadow: 0 0 11px 11px var(--tertiary-color)
 }

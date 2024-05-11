@@ -5,7 +5,7 @@ class StarController {
     this._movementDistance = 100;
     this._half = 0.5;
     this._animFactor = 10000;
-    this._starCount = 300;
+    this._starCount = 50;
     this._foreground = document.querySelector('.foreground');
     this._stars = document.getElementById('stars');
     this._background = document.querySelector('.background');
@@ -37,8 +37,8 @@ class StarController {
   }
 
   moveStars(x) {
-    this._foreground.style.transform = `translateX(${(x) * -30}px)`;
-    this._stars.style.transform = `translateX(${(x) * -20}px) rotateY(${(x) * -3}deg)`;
-    this._background.style.transform = `translateX(${(x) * -10}px)`;
+    this._foreground.style.transform = `translateX(${(x) * 30}px)`;
+    this._stars.style.transform = `translateX(${(x) * 20}px) rotateY(${(x) * -3}deg)`;
+    this._background.style.transform = `translateX(${(x) * 10}px)`;
   }
 }
