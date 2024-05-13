@@ -124,12 +124,11 @@ class IdeasMapController {
   }
 
   async setActiveSection(name) {
-    if (name === this._activeSection || this._transitioning) {
+    if (name === this._activeSection) {
       return;
     }
     document.documentElement.dataset.section = name;
     await this.setCard(null, true);
-    this._transitioning = true;
     const lastSection = this._sections.get(this._activeSection);
 
     const updatedSection = this._sections.get(name);
@@ -145,7 +144,6 @@ class IdeasMapController {
     }
     await updatedSection.visibilityController.setVisible(true);
     this._activeSection = name;
-    this._transitioning = false;
     console.log(this._activeSection, '->', name);
   }
 
@@ -168,9 +166,6 @@ class IdeasMapController {
       }
     }
     const currentSection = this._sections.get(this._activeSection);
-    // this._timerController.setVisible(
-    //   currentSection.name === 'workouts' && card !== null
-    // );
     const exists = card !== null;
     if (card === null) {
       await this._contentsVisibilityController.setVisible(exists, immediate);
@@ -199,10 +194,6 @@ class IdeasMapController {
       });
     }
   }
-
-  // showLoadingOverlay(value) {
-  //   document.getElementById('loading-overlay').style.display = value ? 'flex' : 'none';
-  // }
 }
 
 (() => {
