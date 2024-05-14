@@ -1,5 +1,7 @@
-class StarController {
-  constructor() {
+class StarController extends EventEmitter {
+  constructor(controller) {
+    super();
+    this._controller = controller;
     this._speedFactor = 2;
     this._circleDegrees = 360;
     this._movementDistance = 100;
@@ -9,12 +11,15 @@ class StarController {
     this._foreground = document.querySelector('.foreground');
     this._stars = document.getElementById('stars');
     this._background = document.querySelector('.background');
+    this._eventListenerGroup = new EventListenerGroup();
   }
 
-  initiateStars() {
+  prepare() {
+    this._eventListenerGroup.on(this._controller, 'section-change', this._onSectionChange.bind(this));
     for (let i = 0; i < this._starCount; i++) {
       this._createStar();
     }
+    this._moveStars(0);
   }
 
   _createStar() {
@@ -36,9 +41,13 @@ class StarController {
     });
   }
 
-  moveStars(x) {
+  _moveStars(x) {
     this._foreground.style.transform = `translateX(${(x) * 30}px)`;
     this._stars.style.transform = `translateX(${(x) * 20}px) rotateY(${(x) * -3}deg)`;
     this._background.style.transform = `translateX(${(x) * 10}px)`;
+  }
+
+  _onSectionChange(event) {
+    this._moveStars(-event.x);
   }
 }

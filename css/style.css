@@ -13,33 +13,17 @@
     --secondary-color: #fff;
     --tertiary-color: #fff;
     --quaternary-color: #fff;
-
-    .header-link[data-section="home"] {
-        color: #fff;
-        border-color: #fff;
-        background-color: #fff;
-        color: #000;
-    }
 }
 :root[data-section="articles"] {
     --secondary-color: #D3BDD6;
     --tertiary-color: #C193CF;
     --quaternary-color: #75407E;
-
-    .header-link[data-section="articles"] {
-        color: var(--tertiary-color);
-        border-color: var(--tertiary-color);
-    }
 }
+
 :root[data-section="earth"] {
     --secondary-color: #d2d3a9;
     --tertiary-color: #d0d17c;
     --quaternary-color: #7e7d40;
-
-    .header-link[data-section="earth"] {
-        color: var(--tertiary-color);
-        border-color: var(--tertiary-color);
-    }
 
     .star {
         width: 8px;
@@ -50,22 +34,43 @@
     --secondary-color: #C1D6BD;
     --tertiary-color: #A1CF93;
     --quaternary-color: #497E40;
-
-    .header-link[data-section="studies"] {
-        color: var(--tertiary-color);
-        border-color: var(--tertiary-color);
-    }
 }
 :root[data-section="workouts"] {
     --secondary-color: #D6C6BD;
     --tertiary-color: #CFA393;
     --quaternary-color: #7E5640;
-
-    .header-link[data-section="workouts"] {
-        color: var(--tertiary-color);
-        border-color: var(--tertiary-color);
-    }
 }
+:root[data-instant-section="home"] .header-link[data-section="home"] {
+    color: #fff;
+    border-color: #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+:root[data-instant-section="articles"] .header-link[data-section="articles"],
+:root[data-instant-section="earth"] .header-link[data-section="earth"],
+:root[data-instant-section="studies"] .header-link[data-section="studies"],
+:root[data-instant-section="workouts"] .header-link[data-section="workouts"] {
+    color: var(--tertiary-color);
+    border-color: var(--tertiary-color);
+}
+
+:root[data-instant-section="home"] {
+    --tertiary-color: #fff;
+}
+:root[data-instant-section="earth"] {
+    --tertiary-color: #d0d17c;
+}
+:root[data-instant-section="home"] {
+    --tertiary-color: #fff;
+}
+:root[data-instant-section="studies"] {
+    --tertiary-color: #A1CF93;
+}
+:root[data-instant-section="workouts"] {
+    --tertiary-color: #CFA393;
+}
+
 html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
@@ -132,6 +137,15 @@ body {
     z-index: 0;
     pointer-events: none;
     perspective: 1000px;
+    opacity: 1;
+    transition: opacity var(--transiton-duration-short) ease-out;
+}
+.content[hidden] {
+    pointer-events: none;
+    opacity: 0;
+}
+.content[hidden]:not(.visibility-animating) {
+    display: none;
 }
 .header {
     width: 100%;
@@ -282,6 +296,7 @@ body {
     pointer-events: all;
     cursor: pointer;
     transition: all var(--transiton-duration-tiny) ease-out;
+    user-select: none;
 }
 .card:hover {
     background-color: var(--primary-color);
@@ -845,6 +860,7 @@ body {
     transform: translateX(0);
     transition: transform 0.5s ease-out;
     transform-origin: center;
+    pointer-events: none;
 }
 
 .star {
