@@ -31,16 +31,6 @@ class CardController {
     }
     const cards = document.querySelectorAll('.card');
     for (const card of cards) {
-      card.addEventListener('mousemove', this._onMouseMove.bind(this, card));
-      card.addEventListener('mouseleave', this._onMouseLeave.bind(this, card));
-      card.addEventListener('click', this._onMouseClick.bind(this, card));
-
-      const links = card.querySelectorAll('a');
-      for (const button of links) {
-        button.addEventListener('click', (event) => {
-          event.stopPropagation();
-        });
-      }
       this._cardsMap.set(card, {
         element: card,
         position: { x: 0, y: 0 },

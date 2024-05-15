@@ -17,8 +17,8 @@ class ContentsController {
     this._eventListenerGroup.on(this._controller, 'section-change', this._onSectionChange.bind(this))
   }
 
-  setCard(data) {
-    this._contentsVisibilityController.setVisible(data !== null);
+  async setCard(data) {
+    this._contentsVisibilityController.setVisible(data !== null, true);
     if (data === null) { return; }
     const { entry, ideaContent } = data;
     this._icon.dataset.icon = entry.icon;
@@ -32,11 +32,11 @@ class ContentsController {
   }
 
   _onHeaderClick() {
-    console.log('header click');
-    this.setCard(null);
+    this._controller.setCard(null);
   }
 
   _onCardChange(event) {
+    this.setCard(event);
   }
 
   _onSectionChange(event) {

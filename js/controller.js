@@ -93,34 +93,33 @@ class Controller extends EventEmitter {
   }
 
   async setActiveSection(name) {
-    document.documentElement.dataset.instantSection = name;
-    if (name === this._activeSection) { return; }
-    this._contentElementVisibilityController.resolve();
-    const results = await this._contentElementVisibilityController.setVisible(false, false);
     const previousSection = this._sections.get(this._activeSection);
     if (typeof previousSection !== 'undefined') {
       previousSection.visibilityController.setVisible(false, true);
     }
+
     this._activeSection = name;
-    document.documentElement.dataset.section = name;
     const updatedSection = this._sections.get(name);
+    updatedSection.visibilityController.setVisible(true, true)
+    document.documentElement.dataset.section = name;
+    document.documentElement.dataset.instantSection = name;
     this.emit('section-change', updatedSection);
-    updatedSection.visibilityController.setVisible(true, false)
-    if (results) {
-      await this._contentElementVisibilityController.setVisible(true, false);
-    }
   }
 
-  async setCard(card, immediate = false) {
-    // if (this._selectedCard === card) { return; }
-    // const data = this._cardDataMap.get(card);
-    // this._contentsController.setCard(data);
-    // this.emit('card-change', data)
-    // window.scrollTo(0, 0);
-    // this._selectedCard = card;
-    // const currentSection = this._sections.get(this._activeSection);
-    // const exists = card !== null;
-    // currentSection.visibilityController.setVisible(!exists, immediate);
+  setCard(card) {
+    if (this._selectedCard === card) { return; }
+    const exists = card !== null;
+    const currentSection = this._sections.get(this._activeSection);
+    currentSection.visibilityController.setVisible(!exists, true);
+    this._selectedCard = card;
+    window.scrollTo(0, 0);
+    if (!exists) {
+      this.emit('card-change', null)
+      return;
+    }
+    const data = this._cardDataMap.get(card);
+    this._contentsController.setCard(data);
+    this.emit('card-change', data)
   }
 
   onCardClick(card) {

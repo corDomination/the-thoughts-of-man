@@ -22,7 +22,12 @@ class ElementVisibilityController {
 
     if (!immediate) {
       this._timeout = setTimeout(() => {
-        this.resolve();
+        if (this._promiseDetails !== null) {
+          this._promiseDetails.resolve(true);
+          this._promiseDetails = null;
+          this._timeout = null;
+        }
+        this._element.classList.remove('visibility-animating');
       }, this._duration);
     } else {
       this._element.classList.remove('visibility-animating');
@@ -31,25 +36,6 @@ class ElementVisibilityController {
     }
     const result = await this._promiseDetails.promise;
     return result;
-  }
-
-  resolve() {
-    if (this._promiseDetails !== null) {
-      this._promiseDetails.resolve(true);
-      this._promiseDetails = null;
-      this._timeout = null;
-    }
-    this._element.classList.remove('visibility-animating');
-  }
-
-  reject() {
-    if (this._promiseDetails !== null) {
-      this._promiseDetails.resolve(false);
-      this._promiseDetails = null;
-      this._timeout = null;
-      console.log('rejection');
-    }
-    this._element.classList.remove('visibility-animating');
   }
 }
 
