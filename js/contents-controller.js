@@ -17,7 +17,7 @@ class ContentsController {
     this._eventListenerGroup.on(this._controller, 'section-change', this._onSectionChange.bind(this))
   }
 
-  async setCard(data) {
+  setCard(data) {
     this._contentsVisibilityController.setVisible(data !== null, true);
     if (data === null) { return; }
     const { entry, ideaContent } = data;
