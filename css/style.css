@@ -4,7 +4,8 @@
     --tertiary-color: #93BFCF;
     --quaternary-color: #40687e;
     --text-color: #000;
-    --glassmorphism-color: #eee9dab5;
+    --glassmorphism-color: #000000cf;
+    --glassmorphism-hover-color: #2229;
     --transiton-duration-tiny: 0.125s;
     --transiton-duration-short: 0.25s;
     --transiton-duration-medium: 0.5s;
@@ -165,6 +166,7 @@ body {
     flex-direction: column;
     align-items: center;
     color: #fff;
+    margin: 1em;
 }
 .header-link-container {
     border: 1px solid #fff2;
@@ -234,6 +236,7 @@ body {
     background: var(--secondary-color);
     pointer-events: all;
     border-radius: 0.5em;
+    color: var(--primary-color);
 
     .card-header {
         padding: 0.5em 0;
@@ -266,8 +269,7 @@ body {
     overflow-y: auto;
     top: 0;
     position: relative;
-    pointer-events: none;
-    padding-top: 1em;
+    pointer-events: all;
 }
 .section-group.visibility-animating {
     pointer-events: none;
@@ -282,14 +284,14 @@ body {
 
 .glassmorphism {
     backdrop-filter: blur(12px);
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 1px 2px 0px rgb(150 150 150 / 25%);
     background-color: var(--glassmorphism-color);
     border-radius: 0.5em;
 }
 .card {
     position: relative;
     min-height: 3em;
-    width: calc(min(12em, 45%));
+    max-width: calc(min(12em, 45%));
     padding: 0.25em;
     margin: 0.25em;
     overflow: hidden;
@@ -299,10 +301,15 @@ body {
     transition: all var(--transiton-duration-tiny) ease-out;
     user-select: none;
     top: 0;
+    color: var(--tertiary-color);
 }
 .card:hover {
-    background-color: var(--primary-color);
+    background-color: var(--glassmorphism-hover-color);
+    color: var(--secondary-color);
     top: -8px;
+}
+.card:hover .card-icon {
+    background-color: var(--secondary-color);
 }
 .card.disabled {
     opacity: 0.75;
@@ -313,7 +320,6 @@ body {
 .card-header {
     display: flex;
     flex-direction: column;
-    color: var(--quaternary-color);
     position: relative;
     width: 100%;
     justify-content: space-between;
@@ -504,7 +510,7 @@ body {
     line-height: 1em;
     color: #fff;
     border-radius: 0.125em;
-    margin: 0.75em 0.75em 0;
+    margin: 0.5em;
     pointer-events: none;
     user-select: none;
 }
@@ -849,11 +855,11 @@ body {
 }
 .background {
     background: #090727;
-    /* background: url(../images/background.png); */
+    background: url(../images/background.png);
     z-index: -2;
 }
 .foreground {
-    /* background: url(../images/foreground.png); */
+    background: url(../images/foreground.png);
     z-index: 0;
 }
 /* Stars */

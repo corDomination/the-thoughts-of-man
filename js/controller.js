@@ -45,6 +45,14 @@ class Controller extends EventEmitter {
         const workoutsTemplate = Utility.getTemplate('workouts-template');
         section.appendChild(workoutsTemplate);
       }
+      if (sectionData.name === 'articles') {
+        const workoutsTemplate = Utility.getTemplate('articles-template');
+        section.appendChild(workoutsTemplate);
+      }
+      if (sectionData.name === 'studies') {
+        const workoutsTemplate = Utility.getTemplate('studies-template');
+        section.appendChild(workoutsTemplate);
+      }
 
       const template = Utility.getTemplate('card-template');
       for (const entry of sectionData.data) {
