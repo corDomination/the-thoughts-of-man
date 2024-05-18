@@ -25,11 +25,10 @@
     --secondary-color: #d2d3a9;
     --tertiary-color: #d0d17c;
     --quaternary-color: #7e7d40;
-
-    .star {
-        width: 8px;
-        height: 8px;
-    }
+}
+:root[data-section="earth"] .star {
+    width: 8px;
+    height: 8px;
 }
 :root[data-section="studies"] {
     --secondary-color: #C1D6BD;
@@ -212,9 +211,9 @@ body {
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0.199);
     box-shadow: none;
-    .icon {
-        background-color: #aaa;
-    }
+}
+.header-link[data-disabled] .icon {
+    background-color: #aaa;
 }
 .header-icon {
     border-radius: 0.25em;
@@ -237,14 +236,13 @@ body {
     pointer-events: all;
     border-radius: 0.5em;
     color: var(--primary-color);
-
-    .card-header {
-        padding: 0.5em 0;
-        flex-direction: row;
-        align-items: center;
-        justify-content: normal;
-        user-select: none;
-    }
+}
+.card-selected-details .card-header {
+    padding: 0.5em 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: normal;
+    user-select: none;
 }
 .card-selected-details.visibility-animating {
     pointer-events: none;
@@ -745,15 +743,15 @@ body {
     transform: rotateY(180deg);
     flex-wrap: wrap;
     justify-content: center;
-    * {
-        z-index: 1;
-    }
-    .hero-image {
-        filter: hue-rotate(180deg) contrast(40%);
-        transform: scaleX(-1);
-        opacity: 0.2;
-        z-index: 0;
-    }
+}
+.card-back * {
+    z-index: 1;
+}
+.card-back .hero-image {
+    filter: hue-rotate(180deg) contrast(40%);
+    transform: scaleX(-1);
+    opacity: 0.2;
+    z-index: 0;
 }
 .special-card.flipped {
     transform: rotateY(180deg);
@@ -767,7 +765,6 @@ body {
     object-fit: cover;
     object-position: 0 0;
     user-select: none;
-    user-drag: none;
     -webkit-user-drag: none;
     pointer-events: none;
 }
