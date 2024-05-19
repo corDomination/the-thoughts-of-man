@@ -55,6 +55,7 @@ class Controller extends EventEmitter {
       }
 
       const template = Utility.getTemplate('card-template');
+      const dynamicCardContainer = section.querySelector('.dynamic-card-container')
       for (const entry of sectionData.data) {
         if (typeof entry.complete !== 'undefined' && !entry.complete) {
           continue;
@@ -73,7 +74,7 @@ class Controller extends EventEmitter {
         date.textContent =
           typeof entry.date !== 'undefined' ? entry.date : lastEditedDate;
         const ideaContent = md.render(markdownText);
-        const card = section.appendChild(element);
+        const card = dynamicCardContainer.appendChild(element);
         this._cardDataMap.set(card, {
           ideaContent,
           entry
