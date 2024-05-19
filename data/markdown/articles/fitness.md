@@ -1,3 +1,7 @@
+# My training philosophy:
+Maintain all systems, both strength and endurance wise, to make myself fit, strong, and ready to **serve**, **protect**, and **compete**.
+Limit training to a place where it does not detract from my ability to love those around me.
+
 # Fitness
 One of the greatest gifts you can give to your future self and loved ones is taking care of your body, so that you can be healthy and active with them long into the future.
 
@@ -31,11 +35,6 @@ Bodyweight exercises are excellent in my opinion for maintaining overall health 
 1. The financial cost is either zero or almost zero. For most of the exercises I encourage, the only thing you may need is a bar and maybe a single exercise band. The point being that this kind of exercise easily accessible and can fit into almost anyones schedule since no visit to a gym or fitness center is necessary.
 2. Many bodyweight exercises train your muscles in a functional way where the mind body connection is being built up.
 - Something a physical therapist told me recently is that having strength in a muscle is not the same as being able to use that strength for a sport or a task. That muscle being strong may help with what you are doing, but having muscles learn to fire together and coordinate to accomplish a task is often more important.
-1. It is easy to do with others. To me, working out can be a great time to have some quiet alone time. Something I have also found is that bodyweight exercises scale easily into group settings (think of millitary PT). This makes for a healthy bonding experience for people where they can feel they are doing something productive while also spending time with others.
+3. It is easy to do with others. To me, working out can be a great time to have some quiet alone time. Something I have also found is that bodyweight exercises scale easily into group settings (think of millitary PT). This makes for a healthy bonding experience for people where they can feel they are doing something productive while also spending time with others.
 
 *Note: if you are explicitly going for size or are very high level athlete, then weight training does present benefits that bodyweight may not be able to accomplish, but for most people, bodyweight is perfectly sufficient while also being much more approachable.*
-
-#
-My training philosophy:
-Maintain all systems, both strength and endurance wise, to make myself fit, strong, and ready for whatever life throws at me.
-Limit training to a place where it does not detract from my ability to love those around me.

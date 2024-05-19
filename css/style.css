@@ -194,17 +194,9 @@ body {
     cursor: pointer;
     transition: all var(--transiton-duration-short) ease-out;
 }
-.header-link:hover {
-    border-color: #fff2;
-}
 .header-link-focal {
     border: 1px solid #fff;
     color: #fff;
-}
-.header-link-focal:hover {
-    border-color: #fff;
-    background-color: #fff;
-    color: #000;
 }
 .header-link[data-disabled] {
     opacity: 0.75;
@@ -300,14 +292,6 @@ body {
     user-select: none;
     top: 0;
     color: var(--tertiary-color);
-}
-.card:hover {
-    background-color: var(--glassmorphism-hover-color);
-    color: var(--secondary-color);
-    top: -8px;
-}
-.card:hover .card-icon {
-    background-color: var(--secondary-color);
 }
 .card.disabled {
     opacity: 0.75;
@@ -500,9 +484,6 @@ body {
     width: 3em;
     height: 3em;
 }
-.external-link:hover {
-    box-shadow: 0 0 4px 2px #fff;
-}
 .descriptive-text {
     font-size: 1.25em;
     line-height: 1em;
@@ -520,6 +501,10 @@ body {
     width: 90%;
     text-align: center;
     line-height: 1.125em;
+    max-width: 38em;
+}
+.descriptive-text-title {
+    text-decoration: underline;
 }
 .link-image {
     width: 3em;
@@ -585,23 +570,16 @@ body {
     animation-duration: 300ms;
     opacity: 0;
 }
-/* width */
 ::-webkit-scrollbar {
     width: 8px;
 }
-/* Track */
 ::-webkit-scrollbar-track {
     background: var(--quaternary-color);  
 }
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--primary-color); 
-    
 }
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color); 
-}
+
 
 @keyframes slidein {
     from {
@@ -719,10 +697,6 @@ body {
 .special-card.animating {
     transition: transform 1s;
 }
-.special-card:hover {
-    top: -15px;
-    box-shadow: 0 1px 20px 5px #ffffff8c;
-}
 .card-front, .card-back {
     top: 0;
     position: absolute;
@@ -799,6 +773,35 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+@media screen and (min-width:441px) {
+    .header-link-focal:hover {
+        border-color: #fff;
+        background-color: #fff;
+        color: #000;
+    }
+    .special-card:hover {
+        top: -15px;
+        box-shadow: 0 1px 20px 5px #ffffff8c;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color); 
+    }
+    .card:hover {
+        background-color: var(--glassmorphism-hover-color);
+        color: var(--secondary-color);
+        top: -8px;
+    }
+    .card:hover .card-icon {
+        background-color: var(--secondary-color);
+    }
+    .external-link:hover {
+        box-shadow: 0 0 4px 2px #fff;
+    }
+    .header-link:hover {
+        border-color: #fff2;
+    }
 }
 
 @media screen and (max-width:440px) {
