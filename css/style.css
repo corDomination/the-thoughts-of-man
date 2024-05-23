@@ -22,9 +22,9 @@
 }
 
 :root[data-section="earth"] {
-    --secondary-color: #d2d3a9;
-    --tertiary-color: #d0d17c;
-    --quaternary-color: #7e7d40;
+    --secondary-color: #d47e7e;
+    --tertiary-color: #ce5353;
+    --quaternary-color: #812c2c;
 }
 :root[data-section="earth"] .star {
     width: 8px;
@@ -59,7 +59,7 @@
     --tertiary-color: #fff;
 }
 :root[data-instant-section="earth"] {
-    --tertiary-color: #d0d17c;
+    --tertiary-color: #ce5353;
 }
 :root[data-instant-section="home"] {
     --tertiary-color: #fff;
