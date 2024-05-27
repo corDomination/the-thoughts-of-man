@@ -16,7 +16,7 @@ class Controller extends EventEmitter {
     this._contentElementVisibilityController = new ElementVisibilityController(this._contentElement, this._animationDuration);
 
     this._timerTime = 0;
-    this._updateMS = 1000 / 10;
+    this._updateMS = 100;
   }
 
   async prepare() {
@@ -101,7 +101,7 @@ class Controller extends EventEmitter {
     this.beginAnimationFrames();
   }
 
-  async setActiveSection(name) {
+  setActiveSection(name) {
     const previousSection = this._sections.get(this._activeSection);
     if (typeof previousSection !== 'undefined') {
       previousSection.visibilityController.setVisible(false, true);
@@ -110,6 +110,7 @@ class Controller extends EventEmitter {
     this._activeSection = name;
     const updatedSection = this._sections.get(name);
     updatedSection.visibilityController.setVisible(true, true)
+    updatedSection.element.scrollTop = 0;
     document.documentElement.dataset.section = name;
     document.documentElement.dataset.instantSection = name;
     this.emit('section-change', updatedSection);
@@ -121,7 +122,6 @@ class Controller extends EventEmitter {
     const currentSection = this._sections.get(this._activeSection);
     currentSection.visibilityController.setVisible(!exists, true);
     this._selectedCard = card;
-    window.scrollTo(0, 0);
     if (!exists) {
       this.emit('card-change', null)
       return;

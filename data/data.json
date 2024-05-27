@@ -10,55 +10,9 @@
                     "url": "relationships"
                 },
                 {
-                    "title": "Health",
-                    "icon": "health",
-                    "url": "diet"
-                },
-                {
                     "title": "Exercise",
                     "icon": "strong",
                     "url": "fitness"
-                },
-                {
-                    "title": "Running",
-                    "icon": "strong",
-                    "url": "running"
-                },
-                {
-                    "title": "Family",
-                    "icon": "family",
-                    "url": "family",
-                    "complete": false
-                },
-                {
-                    "title": "Friendship",
-                    "icon": "friends",
-                    "url": "friendship",
-                    "complete": false
-                },
-                {
-                    "title": "Service",
-                    "icon": "friends",
-                    "url": "friendship",
-                    "complete": false
-                },
-                {
-                    "title": "Community",
-                    "icon": "friends",
-                    "url": "community",
-                    "complete": false
-                },
-                {
-                    "title": "Community",
-                    "icon": "friends",
-                    "url": "friendship",
-                    "complete": false
-                },
-                {
-                    "title": "Conflict",
-                    "icon": "friends",
-                    "url": "friendship",
-                    "complete": false
                 }
             ]
         },
@@ -181,6 +135,11 @@
             "name": "workouts",
             "data": [
                 {
+                    "title": "My Ideal Workout (40 min)",
+                    "icon": "strong",
+                    "url": "my-ideal-workout"
+                },
+                {
                     "title": "Full Body (15 min)",
                     "icon": "strong",
                     "url": "full-bodyweight"
@@ -204,6 +163,11 @@
                     "title": "Plyometric workout (30 min)",
                     "icon": "strong",
                     "url": "plyometric-workout"
+                },
+                {
+                    "title": "Lower body (30 min)",
+                    "icon": "strong",
+                    "url": "lower-body-workout"
                 }
             ]
         }

@@ -68,4 +68,4 @@ If your parents marriage was strained, broken, or toxic, then learn from the str
 Ephesians 5:25-29: Husbands, love your wives, as Christ loved the church and gave himself up for her, that he might sanctify her.
 Serve and love the person you are with, and always be preparing yourself to sacrifice yourself for their sake.
 
-When you are dating, this is not the standard you need to hold while dating, but rather the standard you *will* be aiming for and should prepare yourself for if/when you get married.
+This is not the standard you need to hold while dating, but rather the standard you *will* be aiming for and should prepare yourself for if/when you get married.
