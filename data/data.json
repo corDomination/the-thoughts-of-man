@@ -178,6 +178,11 @@
                     "title": "Father Ethan's: The Decade (40m)",
                     "icon": "strong",
                     "url": "the-decade"
+                },
+                {
+                    "title": "PT: Ankle",
+                    "icon": "strong",
+                    "url": "ankle-pt"
                 }
             ]
         }
