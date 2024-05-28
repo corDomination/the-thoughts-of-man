@@ -495,7 +495,7 @@ body {
     line-height: 1em;
     color: #fff;
     border-radius: 0.125em;
-    margin: 0.5em;
+    margin: 0.75em;
     pointer-events: none;
     user-select: none;
 }
@@ -508,6 +508,7 @@ body {
     text-align: center;
     line-height: 1.125em;
     max-width: 38em;
+    margin-top: 0;
 }
 .descriptive-text-title {
     text-decoration: underline;

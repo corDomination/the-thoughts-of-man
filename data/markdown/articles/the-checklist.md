@@ -1,0 +1,12 @@
+## When I feel off in life, think of these things...
+- Eat a balanced diet from whole food sources.
+- Carry a water bottle and hydrate consistently.x 
+- Exercise to build and maintain strength, endurance, and fortitude.
+- Aggressively protect yourself from vice.
+- Intentionally reach out and plan events for/with others.
+- Listen to others and help them feel known and loved.
+- Cultivate famillial bonds and friends you can rely on in hard times.
+- Be excellent and humble at what you do.
+- Be able to give and recieve praise.
+- Find men and women who challenge you and inspire you to greater virtue.
+- Remind yourself and others, "it is good that you exist".
