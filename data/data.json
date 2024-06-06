@@ -131,8 +131,14 @@
                 {
                     "title": "Seed and soil",
                     "icon": "earth",
-                    "date": "05/23/2024",
-                    "url": "seeds-and-soil"
+                    "date": "05/30/2024",
+                    "url": "p1-seeds-and-soil"
+                },
+                {
+                    "title": "Candle and the Basket",
+                    "icon": "prayer",
+                    "date": "06/06/2024",
+                    "url": "p2-candle-and-basket"
                 }
             ]
         },

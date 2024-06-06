@@ -12,12 +12,13 @@ While jogging
 
 ### 3x
 - 15 pulse lunges ea.
-- 8 clapping diamond pushups
+- 8 diamond pushups
 - 25 supermans
 - 10 bar dips
 - 30s handstand
 
 ### 3x
 - 45s 6in. scissors
+- 10 single leg calve raises ea.
 - 10 chinups
 - 12 burpees (jump between)

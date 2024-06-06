@@ -23,4 +23,3 @@
 - Three sides of thigh
 - Hamstring
 - Back
-

@@ -18,7 +18,7 @@ class ContentsController {
   }
 
   setCard(data) {
-    this._contents.scrollTop = 0;
+    // this._contents.scrollTop = 0;
     this._contentsVisibilityController.setVisible(data !== null, true);
     if (data === null) { return; }
     const { entry, ideaContent } = data;
