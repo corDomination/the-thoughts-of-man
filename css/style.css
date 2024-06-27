@@ -347,9 +347,17 @@ body {
 .card-contents h2,
 .card-contents h3 {
     line-height: 1.125em;
-    margin: 0.125em;
+    margin: 0.25em 1.25em;
     font-size: 1em;
 }
+
+.card-contents h1,
+.card-contents h2,
+.card-contents h3 {
+    color: var(--tertiary-color);
+}
+
+
 .card-contents a {
     color: #49f;
 }
