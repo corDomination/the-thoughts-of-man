@@ -357,6 +357,10 @@ body {
     color: var(--tertiary-color);
 }
 
+.card-contents img {
+    border-radius: 0.125em;
+    max-width: 100%;
+}
 
 .card-contents a {
     color: #49f;

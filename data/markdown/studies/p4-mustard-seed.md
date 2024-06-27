@@ -1,5 +1,5 @@
 # The Parable of the Mustard Seed
-Opening Q: What do you guys think of mustard? Good condiment or not?
+Q: What do you guys think of mustard? Good condiment or not?
 ### Example of Mustard Seeds
 
 Mustard seeds are usually a stand in to represent something small and insignificant
@@ -37,7 +37,7 @@ Ways to think about the kingdom of god:
 - "Citizens" of this kingdom are, therefore, called to live the way that Christ lived and think the way that Christ thought.
 
 ## The Plant and it's Branches
-How about the growing of the plant and it's branches?
+Q: How about the growing of the plant and it's branches?
 **Ezek - 31:6**
 **Ezek - 17:23**
 
