@@ -3,7 +3,7 @@ Q: What do you guys think of mustard? Good condiment or not?
 ### Example of Mustard Seeds
 
 Mustard seeds are usually a stand in to represent something small and insignificant
-![Image](../../../images/mustard-seed.png)
+![Image](/images/mustard-seed.png)
 
 Example of mustard seeds referencing to small beginning
 - **Matthew 17:20**
