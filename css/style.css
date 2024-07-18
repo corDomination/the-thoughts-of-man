@@ -776,6 +776,8 @@ body {
     outline: none;
     pointer-events: none;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 .earth-canvas {
     width: 100%;
