@@ -25,10 +25,10 @@ class SceneController {
     });
     this._scene = this._createScene();
     this._addModels();
-    const gl = new BABYLON.GlowLayer('glow', this._scene, {
-      mainTextureFixedSize: 256,
-      blurKernelSize: 64
-    });
+    // const gl = new BABYLON.GlowLayer('glow', this._scene, {
+    //   mainTextureFixedSize: 256,
+    //   blurKernelSize: 64
+    // });
     this._startRenderLoop();
     // this._scene.debugLayer.show();
   }
@@ -36,11 +36,14 @@ class SceneController {
   _createScene() {
     const scene = new BABYLON.Scene(this._engine);
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
-    this._camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(-2345.337, 1025.595, 3213.437), scene);
+    this._camera = new BABYLON.ArcRotateCamera('camera', 0, 0, 10000, BABYLON.Vector3.Zero(), scene);
     this._camera.setTarget(new BABYLON.Vector3(-848.943, 403.618, 1939.095));
     this._camera.attachControl(this._canvas, true);
     this._camera.maxZ = 1000000;
     this._camera.speed = 20;
+    this._camera.lowerRadiusLimit = 2500;
+    this._camera.upperRadiusLimit = 25000;
+    this._camera.wheelDeltaPercentage = 0.01;
     const light = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 70000000;
     light.diffuse = new BABYLON.Color3.FromHexString('#fcba03');
@@ -60,6 +63,7 @@ class SceneController {
       new BABYLON.Vector3(0, 2, 0.2),
       true
     );
+    this._camera.target = earthMeshes[0].position;
     const moonMeshes = await this._importMesh(
       'moon.glb',
       new BABYLON.Vector3(500, 0, 1200),
