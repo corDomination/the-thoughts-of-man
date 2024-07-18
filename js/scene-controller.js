@@ -14,22 +14,22 @@ class SceneController {
   get canvas() { return this._canvas; }
 
   async prepare() {
-    // if (this._engine !== null) { return; }
-    // this._engine = await new BABYLON.Engine(this._canvas, true, {
-    //   preserveDrawingBuffer: true,
-    //   stencil: true,
-    //   disableWebGL2Support: false
-    // });
-    // window.addEventListener('resize', () => {
-    //   this._engine.resize();
-    // });
-    // this._scene = this._createScene();
-    // this._addModels();
-    // const gl = new BABYLON.GlowLayer('glow', this._scene, {
-    //   mainTextureFixedSize: 256,
-    //   blurKernelSize: 64
-    // });
-    // this._startRenderLoop();
+    if (this._engine !== null) { return; }
+    this._engine = await new BABYLON.Engine(this._canvas, true, {
+      preserveDrawingBuffer: true,
+      stencil: true,
+      disableWebGL2Support: false
+    });
+    window.addEventListener('resize', () => {
+      this._engine.resize();
+    });
+    this._scene = this._createScene();
+    this._addModels();
+    const gl = new BABYLON.GlowLayer('glow', this._scene, {
+      mainTextureFixedSize: 256,
+      blurKernelSize: 64
+    });
+    this._startRenderLoop();
     // this._scene.debugLayer.show();
   }
 
@@ -46,10 +46,9 @@ class SceneController {
     light.diffuse = new BABYLON.Color3.FromHexString('#fcba03');
     this._sunlight = light;
 
-    const light3 = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
-    light3.intensity = 0;
-    light3.diffuse = new BABYLON.Color3.FromHexString('#0000ff');
-    this._pillarlight = light3;
+    this._pillarlight = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
+    this._pillarlight.intensity = 0;
+    this._pillarlight.diffuse = new BABYLON.Color3.FromHexString('#0000ff');
     return scene;
   }
 
