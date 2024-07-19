@@ -34,11 +34,8 @@ class Controller extends EventEmitter {
       if (sectionData.name === 'earth') {
         const earthTemplate = Utility.getTemplate('earth-template');
         const earthSection = section.appendChild(earthTemplate);
-        const canvas = document.querySelector('.earth-canvas');
         const canvasContainer = document.querySelector('.canvas-container');
         earthSection.appendChild(canvasContainer);
-        this._sceneController = new SceneController(canvas);
-        this._sceneController.prepare();
       }
       if (sectionData.name === 'home') {
         const homeTemplate = Utility.getTemplate('home-template');
@@ -97,6 +94,9 @@ class Controller extends EventEmitter {
       });
       this._sectionNumber++;
     }
+    const canvas = document.querySelector('.earth-canvas');
+    this._sceneController = new SceneController(canvas);
+    this._sceneController.prepare();
     this._starController.prepare();
     this.setActiveSection('home');
     this._cardController.prepare();

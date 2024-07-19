@@ -44,6 +44,7 @@ class SceneController {
     this._camera.lowerRadiusLimit = 2500;
     this._camera.upperRadiusLimit = 25000;
     this._camera.wheelDeltaPercentage = 0.01;
+    this._camera.pinchDeltaPercentage = 0.01;
     const light = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
     light.intensity = 70000000;
     light.diffuse = new BABYLON.Color3.FromHexString('#fcba03');
@@ -59,7 +60,7 @@ class SceneController {
     const earthMeshes = await this._importMesh(
       'earth.glb',
       new BABYLON.Vector3(0, 0, 2000),
-      new BABYLON.Vector3(1, 1, 1),
+      new BABYLON.Vector3(1, 1, -1),
       new BABYLON.Vector3(0, 2, 0.2),
       true
     );
@@ -67,14 +68,14 @@ class SceneController {
     const moonMeshes = await this._importMesh(
       'moon.glb',
       new BABYLON.Vector3(500, 0, 1200),
-      new BABYLON.Vector3(0.1, 0.1, 0.1),
+      new BABYLON.Vector3(0.1, 0.1, -0.1),
       new BABYLON.Vector3(0, 0, 0),
       true
     );
     const lightMoonMeshes = await this._importMesh(
       'moon.glb',
       new BABYLON.Vector3(500, 0, -1200),
-      new BABYLON.Vector3(0.1, 0.1, 0.1),
+      new BABYLON.Vector3(0.1, 0.1, -0.1),
       new BABYLON.Vector3(0, 0, 0),
       true
     );
