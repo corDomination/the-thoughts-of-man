@@ -409,6 +409,8 @@ body {
 .icon {
     mask-repeat: no-repeat;
     mask-size: cover;
+    -webkit-mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
 }
 .icon[data-icon='health'] {
     mask-image: url('../images/svg/health.svg');
