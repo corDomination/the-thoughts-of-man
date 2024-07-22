@@ -95,7 +95,7 @@ class Controller extends EventEmitter {
       this._sectionNumber++;
     }
     const canvas = document.querySelector('.earth-canvas');
-    this._sceneController = new SceneController(canvas);
+    this._sceneController = new SceneController(this, canvas);
     this._sceneController.prepare();
     this._starController.prepare();
     this.setActiveSection('home');
