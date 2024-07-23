@@ -12,12 +12,12 @@ class CameraController {
 
   _onDocumentMouseMove(event) {
     console.log('mousemove');
-    const rotationX = -(window.innerHeight / 2 - event.pageY) * 0.0005;
-    const rotationY = -(window.innerWidth / 2 - event.pageX) * 0.0007;
+    const rotationX = -(window.innerHeight / 2 - event.pageY) * 0.0002;
+    const rotationY = -(window.innerWidth / 2 - event.pageX) * 0.0004;
     this._goalRotation = new BABYLON.Vector3(rotationX, rotationY, 0);
   }
 
   _on3dFrame() {
-    // this._sceneController.camera.rotation = BABYLON.Vector3.Lerp(this._sceneController.camera.rotation, this._goalRotation, 0.1);
+    this._sceneController.camera.rotation = BABYLON.Vector3.Lerp(this._sceneController.camera.rotation, this._goalRotation, 0.1);
   }
 }

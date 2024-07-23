@@ -6,7 +6,6 @@ class SceneController extends EventEmitter {
     this._engine = null;
     this._canvas = canvas;
     this._camera = null;
-    this._sunlight = null;
     this._pillarlight = null;
     this._objects = [];
     this._frame = 0;
@@ -31,10 +30,10 @@ class SceneController extends EventEmitter {
     this._scene = this._createScene();
     this._root = new BABYLON.TransformNode('root');
     this._addModels();
-    // const gl = new BABYLON.GlowLayer('glow', this._scene, {
-    //   mainTextureFixedSize: 256,
-    //   blurKernelSize: 64
-    // });
+    const gl = new BABYLON.GlowLayer('glow', this._scene, {
+      mainTextureFixedSize: 256,
+      blurKernelSize: 64
+    });
     this._startRenderLoop();
 
     const url = new URL(window.location.href);
@@ -46,24 +45,16 @@ class SceneController extends EventEmitter {
   _createScene() {
     const scene = new BABYLON.Scene(this._engine);
     scene.fogMode = BABYLON.Scene.FOGMODE_LINEAR;
-    scene.fogStart = 5;
+    scene.fogStart = 2;
     scene.fogEnd = 25;
     scene.fogColor = BABYLON.Color3.Black();
     scene.clearColor = new BABYLON.Color4(0, 0, 0, 1);
-    this._camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 3, 0), scene);
+    this._camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 3, -10), scene);
     this._camera.fov = 1;
-    this._camera.setTarget(new BABYLON.Vector3(0, 0, 0));
-    this._camera.attachControl(this._canvas, true);
+    this._camera.setTarget(new BABYLON.Vector3(0, 3, 1));
+    // this._camera.attachControl(this._canvas, true);
     this._cameraController = new CameraController(this);
     this._cameraController.prepare();
-    const light = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 5, 0), scene);
-    light.intensity = 100;
-    light.diffuse = new BABYLON.Color3.FromHexString('#fcba03');
-    this._sunlight = light;
-
-    this._pillarlight = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), scene);
-    this._pillarlight.intensity = 0;
-    this._pillarlight.diffuse = new BABYLON.Color3.FromHexString('#0000ff');
     return scene;
   }
 
@@ -78,6 +69,29 @@ class SceneController extends EventEmitter {
         receiveShadows: true
       }
     );
+    const children = caveMeshes[0].getChildren();
+    for (const child of children) {
+      if (child.name === 'Plane') {
+        child.material.roughness = 1;
+      }
+    }
+    const torchMeshes = await this._importMesh(
+      'torch.glb',
+      {
+        parent: this._root,
+        position: new BABYLON.Vector3(10,0,4),
+        rotation: new BABYLON.Vector3(),
+        rotationQuaternion: null,
+        receiveShadows: true
+      }
+    );
+    this._pillarlight = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), this._scene);
+    this._pillarlight.intensity = 150;
+    this._pillarlight.diffuse = new BABYLON.Color3.FromHexString('#FF6645');
+    this._pillarlight.parent = torchMeshes[0];
+    this._pillarlight.position.y += 1;
+    const torch2 = torchMeshes[0].clone('torch2', this._root);
+    torch2.position.x = -10;
     // let root = caveMeshes[0];
     // const child = caveMeshes[1];
     // child.position = new BABYLON.Vector3(0, 0, 5);
@@ -93,13 +107,6 @@ class SceneController extends EventEmitter {
   }
 
   _createShadows(meshes) {
-    // Shadows
-    const shadowGenerator = new BABYLON.ShadowGenerator(1024, this._sunlight);
-    shadowGenerator.getShadowMap().renderList.push(...meshes);
-    shadowGenerator.useBlurExponentialShadowMap = true;
-    shadowGenerator.useKernelBlur = true;
-    shadowGenerator.blurKernel = 64;
-
     const shadowGenerator2 = new BABYLON.ShadowGenerator(1024, this._pillarlight);
     shadowGenerator.getShadowMap().renderList.push(...meshes);
     shadowGenerator.useBlurExponentialShadowMap = true;
@@ -118,10 +125,9 @@ class SceneController extends EventEmitter {
       // for (const object of this._objects) {
       //   object.rotation.y += 0.001;
       // }
-      // if (this._pillarlight === null || this._pillar === null) { return; }
+      // if (this._pillarlight === null) { return; }
       // const rate = (Math.cos(this._frame * 0.01) + 1) * 0.5;
       // this._pillarlight.intensity = Math.pow(rate * 5000, 2);
-      // this._pillar.material.alpha = rate;
     });
   }
 
