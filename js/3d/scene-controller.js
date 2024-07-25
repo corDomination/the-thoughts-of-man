@@ -16,6 +16,7 @@ class SceneController extends EventEmitter {
   get controller() { return this._controller; }
   get canvas() { return this._canvas; }
   get camera() { return this._camera; }
+  get scene() { return this._scene; }
 
   async prepare() {
     if (this._engine !== null) { return; }
@@ -30,10 +31,6 @@ class SceneController extends EventEmitter {
     this._scene = this._createScene();
     this._root = new BABYLON.TransformNode('root');
     this._addModels();
-    const gl = new BABYLON.GlowLayer('glow', this._scene, {
-      mainTextureFixedSize: 256,
-      blurKernelSize: 64
-    });
     this._startRenderLoop();
 
     const url = new URL(window.location.href);
@@ -55,6 +52,20 @@ class SceneController extends EventEmitter {
     // this._camera.attachControl(this._canvas, true);
     this._cameraController = new CameraController(this);
     this._cameraController.prepare();
+
+
+    scene.imageProcessingConfiguration.toneMappingEnabled = true;
+    scene.imageProcessingConfiguration.toneMappingType = BABYLON.ImageProcessingConfiguration.TONEMAPPING_ACES;
+    scene.imageProcessingConfiguration.exposure = 3;
+    const pipeline = new BABYLON.DefaultRenderingPipeline('default', true, scene);
+    pipeline.bloomEnabled = true;
+    pipeline.bloomThreshold = 0.1;
+    pipeline.bloomWeight = 3;
+    pipeline.bloomKernel = 64;
+    pipeline.bloomScale = 0.5;
+    pipeline.glowLayerEnabled = true;
+    pipeline.glowLayer.blurKernelSize = 64;
+    pipeline.glowLayer.intensity = 0.2;
     return scene;
   }
 
@@ -79,31 +90,25 @@ class SceneController extends EventEmitter {
       'torch.glb',
       {
         parent: this._root,
-        position: new BABYLON.Vector3(10,0,4),
+        position: new BABYLON.Vector3(10, 0, 4),
         rotation: new BABYLON.Vector3(),
         rotationQuaternion: null,
         receiveShadows: true
       }
     );
-    this._pillarlight = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 1, 0), this._scene);
+    const torch = torchMeshes[0];
+    this._pillarlight = new BABYLON.PointLight('light', new BABYLON.Vector3(0, 2.5, 0), this._scene);
     this._pillarlight.intensity = 150;
     this._pillarlight.diffuse = new BABYLON.Color3.FromHexString('#FF6645');
     this._pillarlight.parent = torchMeshes[0];
-    this._pillarlight.position.y += 1;
     const torch2 = torchMeshes[0].clone('torch2', this._root);
     torch2.position.x = -10;
-    // let root = caveMeshes[0];
-    // const child = caveMeshes[1];
-    // child.position = new BABYLON.Vector3(0, 0, 5);
-    // for (let i = 0; i < 4; i++) {
-    //   if (i !== 0) {
-    //     root = caveMeshes[0].clone('cave', this._root);
-    //   }
-    //   root.rotationQuaternion = null;
-    //   root.rotation = new BABYLON.Vector3(0, Math.PI / 2 * i, 0);
-    // }
 
-    // BABYLON.MeshBuilder.CreateGround('ground')
+    const particleSpawner = new ParticleSpawner(this);
+    particleSpawner.prepare(torch, new BABYLON.Vector3(0, 2.5, 0));
+
+    const particleSpawner2 = new ParticleSpawner(this);
+    particleSpawner2.prepare(torch2, new BABYLON.Vector3(0, 2.5, 0));
   }
 
   _createShadows(meshes) {

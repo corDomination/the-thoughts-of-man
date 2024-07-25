@@ -8,6 +8,24 @@ class CameraController {
   prepare() {
     this._eventListenerGroup.addEventListener(document, 'mousemove', this._onDocumentMouseMove.bind(this));
     this._eventListenerGroup.on(this._sceneController, '3d-frame', this._on3dFrame.bind(this));
+
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', (event) => {
+        this.tilt([event.beta, event.gamma]);
+      }, true);
+    } else if (window.DeviceMotionEvent) {
+      window.addEventListener('devicemotion', (event) => {
+        this.tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
+      }, true);
+    } else {
+      window.addEventListener('MozOrientation', (event) => {
+        this.tilt([Screen.orientation.x * 50, Screen.orientation.y * 50]);
+      }, true);
+    }
+  }
+
+  tilt(value) {
+    this._goalRotation = new BABYLON.Vector3(value[0] * 0.05, value[1] * 0.05, 0);
   }
 
   _onDocumentMouseMove(event) {
