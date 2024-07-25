@@ -476,6 +476,10 @@ body {
     mask-image: url('../images/svg/earth.svg');
     -webkit-mask-image: url('../images/svg/earth.svg');
 }
+.icon[data-icon='mountain'] {
+    mask-image: url('../images/svg/mountain.svg');
+    -webkit-mask-image: url('../images/svg/mountain.svg');
+}
 
 .card .icon[data-icon='back-arrow'] {
     display: none;

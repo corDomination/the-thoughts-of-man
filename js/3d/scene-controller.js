@@ -90,7 +90,7 @@ class SceneController extends EventEmitter {
       'torch.glb',
       {
         parent: this._root,
-        position: new BABYLON.Vector3(10, 0, 4),
+        position: new BABYLON.Vector3(5, 0, 4),
         rotation: new BABYLON.Vector3(),
         rotationQuaternion: null,
         receiveShadows: true
@@ -102,7 +102,7 @@ class SceneController extends EventEmitter {
     this._pillarlight.diffuse = new BABYLON.Color3.FromHexString('#FF6645');
     this._pillarlight.parent = torchMeshes[0];
     const torch2 = torchMeshes[0].clone('torch2', this._root);
-    torch2.position.x = -10;
+    torch2.position.x = -5;
 
     const particleSpawner = new ParticleSpawner(this);
     particleSpawner.prepare(torch, new BABYLON.Vector3(0, 2.5, 0));

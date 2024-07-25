@@ -5,9 +5,10 @@ class CameraController {
     this._goalRotation = new BABYLON.Vector3();
   }
 
-  prepare() {
+  async prepare() {
     this._eventListenerGroup.addEventListener(document, 'mousemove', this._onDocumentMouseMove.bind(this));
     this._eventListenerGroup.on(this._sceneController, '3d-frame', this._on3dFrame.bind(this));
+    await this.getOrientation();
 
     if (window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', (event) => {
@@ -18,7 +19,7 @@ class CameraController {
         this.tilt([event.acceleration.x * 2, event.acceleration.y * 2]);
       }, true);
     } else {
-      window.addEventListener('MozOrientation', (event) => {
+      window.addEventListener('MozOrientation', () => {
         this.tilt([Screen.orientation.x * 50, Screen.orientation.y * 50]);
       }, true);
     }
@@ -37,5 +38,17 @@ class CameraController {
 
   _on3dFrame() {
     this._sceneController.camera.rotation = BABYLON.Vector3.Lerp(this._sceneController.camera.rotation, this._goalRotation, 0.1);
+  }
+
+  async getOrientation() {
+    if (!window.DeviceOrientationEvent || !window.DeviceOrientationEvent.requestPermission) {
+      return false;
+    }
+
+    const permission = await window.DeviceOrientationEvent.requestPermission();
+    if (permission !== 'granted') {
+      return false;
+    }
+    return true;
   }
 }
