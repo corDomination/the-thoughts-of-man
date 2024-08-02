@@ -28,7 +28,7 @@ class CameraController {
   }
 
   tilt(value) {
-    this._goalRotation = new BABYLON.Vector3(value[0] * 0.05, value[1] * 0.05, 0);
+    this._goalRotation = new BABYLON.Vector3(value[1] * 0.05, value[0] * 0.05, 0);
   }
 
   _onDocumentMouseMove(event) {
