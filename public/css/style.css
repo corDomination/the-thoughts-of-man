@@ -911,3 +911,18 @@ body {
     transition: all 0.25s ease-out;
     box-shadow: 0 0 11px 11px var(--tertiary-color)
 }
+.permission-request {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2em;
+    pointer-events: all;
+    cursor: pointer;
+}

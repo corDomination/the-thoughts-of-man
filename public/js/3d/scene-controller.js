@@ -49,7 +49,6 @@ class SceneController extends EventEmitter {
     this._camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 3, -10), scene);
     this._camera.fov = 1;
     this._camera.setTarget(new BABYLON.Vector3(0, 3, 1));
-    // this._camera.attachControl(this._canvas, true);
     this._cameraController = new CameraController(this);
     this._cameraController.prepare();
 

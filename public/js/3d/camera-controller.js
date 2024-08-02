@@ -5,10 +5,12 @@ class CameraController {
     this._goalRotation = new BABYLON.Vector3();
   }
 
-  async prepare() {
+  prepare() {
     this._eventListenerGroup.addEventListener(document, 'mousemove', this._onDocumentMouseMove.bind(this));
     this._eventListenerGroup.on(this._sceneController, '3d-frame', this._on3dFrame.bind(this));
-    await this.getOrientation();
+    const permissionRequestController = new PermissionRequestController();
+    const section = this._sceneController.controller.getSectionByName('earth');
+    permissionRequestController.prepare(section.element, this.getOrientation.bind(this));
 
     if (window.DeviceOrientationEvent) {
       window.addEventListener('deviceorientation', (event) => {

@@ -148,4 +148,8 @@ class Controller extends EventEmitter {
       this.emit('tick', this._timerTime);
     }, this._updateMS);
   }
+
+  getSectionByName(name) {
+    return this._sections.get(name);
+  }
 }

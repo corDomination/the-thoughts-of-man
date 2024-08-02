@@ -1,3 +1,7 @@
+
+/**
+ * @class
+ */
 class EventListenerGroup {
   constructor() {
     this._listeners = [];
