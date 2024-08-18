@@ -201,6 +201,11 @@
                     "title": "PT: Ankle",
                     "icon": "strong",
                     "url": "ankle-pt"
+                },
+                {
+                    "title": "Female Daily Workout #1",
+                    "icon": "strong",
+                    "url": "daily-circuit-1"
                 }
             ]
         }
