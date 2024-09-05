@@ -157,6 +157,12 @@
                     "icon": "home",
                     "date": "08/22/2024",
                     "url": "the-wicked-husbandman"
+                },
+                {
+                    "title": "The Parable of the Fig Tree",
+                    "icon": "book",
+                    "date": "09/05/2024",
+                    "url": "the-fig-tree"
                 }
             ]
         },
