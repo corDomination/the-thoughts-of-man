@@ -169,6 +169,12 @@
                     "icon": "book",
                     "date": "09/12/2024",
                     "url": "the-fine-clothes"
+                },
+                {
+                    "title": "Discourse on Love",
+                    "icon": "prayer",
+                    "date": "09/19/2024",
+                    "url": "discourse-on-love"
                 }
             ]
         },
