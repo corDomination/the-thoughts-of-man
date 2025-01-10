@@ -23,3 +23,8 @@ Questions:
 
 Mans Search for Meaning: Victor Frankl
 “Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way.”
+
+
+Share anecdotes about what love costs as a husband, father, brother, child.
+
+Q: When love has a cost, what can our response be?
