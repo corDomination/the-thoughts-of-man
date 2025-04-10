@@ -205,6 +205,12 @@
                     "icon": "prayer",
                     "date": "04/03/2025",
                     "url": "table-turning"
+                },
+                {
+                    "title": "The turning of the Tables",
+                    "icon": "prayer",
+                    "date": "04/10/2025",
+                    "url": "study-april-10.md"
                 }
             ]
         },
