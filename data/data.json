@@ -229,6 +229,18 @@
                     "icon": "prayer",
                     "date": "07/09/2025",
                     "url": "matthew-9"
+                },
+                {
+                    "title": "Gnostic",
+                    "icon": "prayer",
+                    "date": "08/28/2025",
+                    "url": "summer-comeback"
+                },
+                {
+                    "title": "Friendship - St Francis de Sales",
+                    "icon": "prayer",
+                    "date": "09/25/2025",
+                    "url": "de-sales-friendship"
                 }
             ]
         },
