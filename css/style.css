@@ -745,9 +745,9 @@ body {
     z-index: 1;
 }
 .card-back .hero-image {
-    filter: hue-rotate(180deg) contrast(40%);
+    filter: hue-rotate(180deg) contrast(20%) brightness(0.4);
     transform: scaleX(-1);
-    opacity: 0.2;
+    opacity: 0.5;
     z-index: 0;
 }
 .special-card.flipped {

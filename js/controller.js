@@ -13,7 +13,10 @@ class Controller extends EventEmitter {
     this._cardController = new CardController(this);
     this._contentsController = new ContentsController(this);
     this._contentElement = document.querySelector('.content');
-    this._contentElementVisibilityController = new ElementVisibilityController(this._contentElement, this._animationDuration);
+    this._contentElementVisibilityController = new ElementVisibilityController(
+      this._contentElement,
+      this._animationDuration
+    );
 
     this._timerTime = 0;
     this._updateMS = 100;
@@ -22,7 +25,11 @@ class Controller extends EventEmitter {
   async prepare() {
     const headerLinks = document.querySelectorAll('.header-link');
     for (const link of headerLinks) {
-      this._headerLinkEventGroup.addEventListener(link, 'click', this._onHeaderLinkClick.bind(this, link.dataset.section));
+      this._headerLinkEventGroup.addEventListener(
+        link,
+        'click',
+        this._onHeaderLinkClick.bind(this, link.dataset.section)
+      );
     }
     const md = window.markdownit();
     const json = await Utility.fetchJSON('data/data.json');
@@ -55,12 +62,16 @@ class Controller extends EventEmitter {
       }
 
       const template = Utility.getTemplate('card-template');
-      const dynamicCardContainer = section.querySelector('.dynamic-card-container')
+      const dynamicCardContainer = section.querySelector(
+        '.dynamic-card-container'
+      );
       for (const entry of sectionData.data) {
         if (typeof entry.complete !== 'undefined' && !entry.complete) {
           continue;
         }
-        const markdownData = await fetch(`data/markdown/${sectionData.name}/${entry.url}.md`);
+        const markdownData = await fetch(
+          `data/markdown/${sectionData.name}/${entry.url}.md`
+        );
         const unformattedDate = markdownData.headers.get('Last-Modified');
         const lastEditedDate = Utility.parseDateHeader(unformattedDate);
         const markdownText = await markdownData.text();
@@ -95,8 +106,8 @@ class Controller extends EventEmitter {
       this._sectionNumber++;
     }
     const canvas = document.querySelector('.earth-canvas');
-    this._sceneController = new SceneController(this, canvas);
-    this._sceneController.prepare();
+    // this._sceneController = new SceneController(this, canvas);
+    // this._sceneController.prepare();
     this._starController.prepare();
     this.setActiveSection('home');
     this._cardController.prepare();
@@ -112,7 +123,7 @@ class Controller extends EventEmitter {
 
     this._activeSection = name;
     const updatedSection = this._sections.get(name);
-    updatedSection.visibilityController.setVisible(true, true)
+    updatedSection.visibilityController.setVisible(true, true);
     updatedSection.element.scrollTop = 0;
     document.documentElement.dataset.section = name;
     document.documentElement.dataset.instantSection = name;
@@ -120,18 +131,20 @@ class Controller extends EventEmitter {
   }
 
   setCard(card) {
-    if (this._selectedCard === card) { return; }
+    if (this._selectedCard === card) {
+      return;
+    }
     const exists = card !== null;
     const currentSection = this._sections.get(this._activeSection);
     currentSection.visibilityController.setVisible(!exists, true);
     this._selectedCard = card;
     if (!exists) {
-      this.emit('card-change', null)
+      this.emit('card-change', null);
       return;
     }
     const data = this._cardDataMap.get(card);
     this._contentsController.setCard(data);
-    this.emit('card-change', data)
+    this.emit('card-change', data);
   }
 
   onCardClick(card) {
