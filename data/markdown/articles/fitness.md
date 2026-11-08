@@ -1,11 +1,11 @@
-# My training philosophy:
+# Training Philosophy:
 Maintain all systems, both strength and endurance wise, to make myself fit, strong, and ready to **serve**, **protect**, and **compete**.
-Limit training to a place where it does not detract from my ability to love those around me.
+Limit training to a place where it does not detract from my ability to love those around me and fulfill my responsibilites.
 
 # Fitness
 One of the greatest gifts you can give to your future self and loved ones is taking care of your body, so that you can be healthy and active with them long into the future.
 
-Especially as a man, being physically able to serve and protect my family is something that also comes into play.
+Especially as a man, being physically able to **serve** and **protect** my family is something that also comes into play.
 
 Lastly, caring for oneself can be a gift to your significant other, helping them find you attractive.
 

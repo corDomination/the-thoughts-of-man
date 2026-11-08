@@ -42,7 +42,7 @@ class StarController extends EventEmitter {
   }
 
   _moveStars(x) {
-    this._foreground.style.transform = `translateX(${(x) * 30}px)`;
+    this._foreground.style.transform = `translateX(${(x) * 20}px)`;
     this._stars.style.transform = `translateX(${(x) * 20}px) rotateY(${(x) * -3}deg)`;
     this._background.style.transform = `translateX(${(x) * 10}px)`;
   }

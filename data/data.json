@@ -10,7 +10,7 @@
                     "url": "relationships"
                 },
                 {
-                    "title": "Exercise",
+                    "title": "Fitness",
                     "icon": "strong",
                     "url": "fitness"
                 },
@@ -265,6 +265,18 @@
                     "icon": "prayer",
                     "date": "01/22/2026",
                     "url": "sirach"
+                },
+                {
+                    "title": "Usury",
+                    "icon": "prayer",
+                    "date": "03/12/2026",
+                    "url": "sirach"
+                },
+                {
+                    "title": "Usury",
+                    "icon": "prayer",
+                    "date": "04/09/2026",
+                    "url": "usury"
                 }
             ]
         },
@@ -317,9 +329,19 @@
                     "url": "ankle-pt"
                 },
                 {
-                    "title": "Female Daily Workout #1",
+                    "title": "All around - Daily Circuit",
                     "icon": "strong",
                     "url": "daily-circuit-1"
+                },
+                                {
+                    "title": "Lower Body - Daily Circuit",
+                    "icon": "strong",
+                    "url": "daily-circuit-2"
+                },
+                {
+                    "title": "Upper Body - Daily Circuit",
+                    "icon": "strong",
+                    "url": "daily-circuit-3"
                 }
             ]
         }
